@@ -1,0 +1,1249 @@
+<!DOCTYPE HTML>
+<html lang="en-US" manifest="../manifest.appcache">
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <title>device_ready.js | Introduction</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 0.5.2">
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+        
+    
+    
+    
+    <link rel="next" href="../full_app/routerjs.html" />
+    
+    
+    <link rel="prev" href="../full_app/toast.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+<link rel="stylesheet" href="../gitbook/style.css">
+
+
+        
+    <div class="book"  data-level="5.7" data-basepath=".." data-revision="1404538211172">
+    <div class="book-header">
+    <!-- Actions Left -->
+    <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
+    
+    <a href="https://github.com/null" target="_blank" class="btn pull-left home-bookmark" aria-label="GitHub home"><i class="fa fa-bookmark-o"></i></a>
+    
+    <a href="#" class="btn pull-left toggle-search" aria-label="Toggle search"><i class="fa fa-search"></i></a>
+    <span id="font-settings-wrapper">
+        <a href="#" class="btn pull-left toggle-font-settings" aria-label="Toggle font settings"><i class="fa fa-font"></i>
+        </a>
+        <div class="dropdown-menu font-settings">
+    <div class="dropdown-caret">
+        <span class="caret-outer"></span>
+        <span class="caret-inner"></span>
+    </div>
+
+    <div class="btn-group btn-block">
+        <button id="reduce-font-size" class="btn btn-default">A</button>
+        <button id="enlarge-font-size" class="btn btn-default">A</button>
+    </div>
+
+    <ul class="list-group font-family-list">
+        <li class="list-group-item" data-font="0">Serif</li>
+        <li class="list-group-item" data-font="1">Sans</li>
+    </ul>
+
+    <div class="btn-group btn-group-xs btn-block color-theme-list">
+        <button type="button" class="btn btn-default" id="color-theme-preview-0" data-theme="0">White</button>
+        <button type="button" class="btn btn-default" id="color-theme-preview-1" data-theme="1">Sepia</button>
+        <button type="button" class="btn btn-default" id="color-theme-preview-2" data-theme="2">Night</button>
+    </div>
+</div>
+
+    </span>
+
+    <!-- Actions Right -->
+    
+    <a href="#" target="_blank" class="btn pull-right google-plus-sharing-link sharing-link" data-sharing="google-plus" aria-label="Share on Google Plus"><i class="fa fa-google-plus"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right facebook-sharing-link sharing-link" data-sharing="facebook" aria-label="Share on Facebook"><i class="fa fa-facebook"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right twitter-sharing-link sharing-link" data-sharing="twitter" aria-label="Share on Twitter"><i class="fa fa-twitter"></i></a>
+    
+
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-spinner fa-spin"></i>
+        <a href="../" >Introduction</a>
+    </h1>
+</div>
+
+    
+
+<div class="book-summary">
+    <div class="book-search">
+        <input type="text" placeholder="Search" class="form-control" />
+    </div>
+    <ul class="summary">
+        
+        
+
+        
+
+        
+
+        
+
+        <li data-level="0" data-path="index.html">
+            <a href="../"><i class="fa fa-check"></i> Introduction</a>
+        </li>
+        
+    
+        <li class="chapter " data-level="1" data-path="about_the_author/README.html">
+            
+            <a href="../about_the_author/README.html">
+                <i class="fa fa-check"></i> <b>1.</b> About the Author
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="setup/README.html">
+            
+            <a href="../setup/README.html">
+                <i class="fa fa-check"></i> <b>2.</b> Requirements
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="phonegap_and_cordova/README.html">
+            
+            <a href="../phonegap_and_cordova/README.html">
+                <i class="fa fa-check"></i> <b>3.</b> PhoneGap and Cordova
+            </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1" data-path="phonegap_and_cordova/something.html">
+            
+            <a href="../phonegap_and_cordova/something.html">
+                <i class="fa fa-check"></i> <b>3.1.</b> Build Hello World
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="phonegap_and_cordova/phonegap_build.html">
+            
+            <a href="../phonegap_and_cordova/phonegap_build.html">
+                <i class="fa fa-check"></i> <b>3.2.</b> PhoneGap Build
+            </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4" data-path="intro_to_famous/README.html">
+            
+            <a href="../intro_to_famous/README.html">
+                <i class="fa fa-check"></i> <b>4.</b> Intro to Famous
+            </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1" data-path="intro_to_famous/gotchas.html">
+            
+            <a href="../intro_to_famous/gotchas.html">
+                <i class="fa fa-check"></i> <b>4.1.</b> Gotchas
+            </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5" data-path="full_app/README.html">
+            
+            <a href="../full_app/README.html">
+                <i class="fa fa-check"></i> <b>5.</b> Building the App
+            </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1" data-path="full_app/directory_structure.html">
+            
+            <a href="../full_app/directory_structure.html">
+                <i class="fa fa-check"></i> <b>5.1.</b> Directory Structure
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="full_app/configxml.html">
+            
+            <a href="../full_app/configxml.html">
+                <i class="fa fa-check"></i> <b>5.2.</b> config.xml
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.3" data-path="full_app/css_styles.html">
+            
+            <a href="../full_app/css_styles.html">
+                <i class="fa fa-check"></i> <b>5.3.</b> CSS Styles
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.4" data-path="full_app/credentialsjson.html">
+            
+            <a href="../full_app/credentialsjson.html">
+                <i class="fa fa-check"></i> <b>5.4.</b> credentials.json
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.5" data-path="full_app/indexhtml.html">
+            
+            <a href="../full_app/indexhtml.html">
+                <i class="fa fa-check"></i> <b>5.5.</b> index.html
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.6" data-path="full_app/mainjs.html">
+            
+            <a href="../full_app/mainjs.html">
+                <i class="fa fa-check"></i> <b>5.6.</b> main.js
+            </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.6.1" data-path="full_app/requireconfig.html">
+            
+            <a href="../full_app/requireconfig.html">
+                <i class="fa fa-check"></i> <b>5.6.1.</b> require.config
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.6.2" data-path="full_app/general.html">
+            
+            <a href="../full_app/general.html">
+                <i class="fa fa-check"></i> <b>5.6.2.</b> general
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.6.3" data-path="full_app/setting_up_context.html">
+            
+            <a href="../full_app/setting_up_context.html">
+                <i class="fa fa-check"></i> <b>5.6.3.</b> MainContext
+            </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.6.3.1" data-path="full_app/main.html">
+            
+            <a href="../full_app/main.html">
+                <i class="fa fa-check"></i> <b>5.6.3.1.</b> Main
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.6.3.2" data-path="full_app/footer.html">
+            
+            <a href="../full_app/footer.html">
+                <i class="fa fa-check"></i> <b>5.6.3.2.</b> Footer
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.6.3.3" data-path="full_app/popover.html">
+            
+            <a href="../full_app/popover.html">
+                <i class="fa fa-check"></i> <b>5.6.3.3.</b> Popover
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.6.3.4" data-path="full_app/toast.html">
+            
+            <a href="../full_app/toast.html">
+                <i class="fa fa-check"></i> <b>5.6.3.4.</b> Toast
+            </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5.7" data-path="full_app/device_readyjs.html">
+            
+            <a href="../full_app/device_readyjs.html">
+                <i class="fa fa-check"></i> <b>5.7.</b> device_ready.js
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.8" data-path="full_app/routerjs.html">
+            
+            <a href="../full_app/routerjs.html">
+                <i class="fa fa-check"></i> <b>5.8.</b> router.js
+            </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.8.1" data-path="full_app/routes,_viewtoview,_storedtransitions.html">
+            
+            <a href="../full_app/routes,_viewtoview,_storedtransitions.html">
+                <i class="fa fa-check"></i> <b>5.8.1.</b> routes, ViewToView, StoredTransitions
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.8.2" data-path="full_app/historyjs.html">
+            
+            <a href="../full_app/historyjs.html">
+                <i class="fa fa-check"></i> <b>5.8.2.</b> history.js
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.8.3" data-path="full_app/defaultroute.html">
+            
+            <a href="../full_app/defaultroute.html">
+                <i class="fa fa-check"></i> <b>5.8.3.</b> defaultRoute
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.8.4" data-path="full_app/cache.html">
+            
+            <a href="../full_app/cache.html">
+                <i class="fa fa-check"></i> <b>5.8.4.</b> cache
+            </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5.9" data-path="full_app/utilsjs.html">
+            
+            <a href="../full_app/utilsjs.html">
+                <i class="fa fa-check"></i> <b>5.9.</b> utils.js
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.10" data-path="full_app/localization.html">
+            
+            <a href="../full_app/localization.html">
+                <i class="fa fa-check"></i> <b>5.10.</b> localization
+            </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="6" data-path="models__collections/README.html">
+            
+            <a href="../models__collections/README.html">
+                <i class="fa fa-check"></i> <b>6.</b> Models / Collections
+            </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.1" data-path="models__collections/model.html">
+            
+            <a href="../models__collections/model.html">
+                <i class="fa fa-check"></i> <b>6.1.</b> Model
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6.2" data-path="models__collections/collection.html">
+            
+            <a href="../models__collections/collection.html">
+                <i class="fa fa-check"></i> <b>6.2.</b> Collection
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6.3" data-path="models__collections/live_updating__streams__websockets.html">
+            
+            <a href="../models__collections/live_updating__streams__websockets.html">
+                <i class="fa fa-check"></i> <b>6.3.</b> Live Updating / Streams / Websockets
+            </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="7" data-path="views/README.html">
+            
+            <a href="../views/README.html">
+                <i class="fa fa-check"></i> <b>7.</b> Views
+            </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="7.1" data-path="views/directory_structure.html">
+            
+            <a href="../views/directory_structure.html">
+                <i class="fa fa-check"></i> <b>7.1.</b> Directory Structure
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.2" data-path="views/patterns.html">
+            
+            <a href="../views/patterns.html">
+                <i class="fa fa-check"></i> <b>7.2.</b> Patterns
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.3" data-path="views/common_views.html">
+            
+            <a href="../views/common_views.html">
+                <i class="fa fa-check"></i> <b>7.3.</b> Common Views
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.4" data-path="views/login.html">
+            
+            <a href="../views/login.html">
+                <i class="fa fa-check"></i> <b>7.4.</b> Login
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.5" data-path="views/signup.html">
+            
+            <a href="../views/signup.html">
+                <i class="fa fa-check"></i> <b>7.5.</b> Signup
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.6" data-path="views/welcome_screens.html">
+            
+            <a href="../views/welcome_screens.html">
+                <i class="fa fa-check"></i> <b>7.6.</b> Welcome Screens
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.7" data-path="views/profile_view.html">
+            
+            <a href="../views/profile_view.html">
+                <i class="fa fa-check"></i> <b>7.7.</b> Profile View
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.8" data-path="views/inbox.html">
+            
+            <a href="../views/inbox.html">
+                <i class="fa fa-check"></i> <b>7.8.</b> Inbox
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.9" data-path="views/wizards.html">
+            
+            <a href="../views/wizards.html">
+                <i class="fa fa-check"></i> <b>7.9.</b> Send Message Wizard
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.10" data-path="views/search_profiles.html">
+            
+            <a href="../views/search_profiles.html">
+                <i class="fa fa-check"></i> <b>7.10.</b> Search Profiles
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.11" data-path="views/invite_friends.html">
+            
+            <a href="../views/invite_friends.html">
+                <i class="fa fa-check"></i> <b>7.11.</b> Invite Friends
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.12" data-path="views/more_views.html">
+            
+            <a href="../views/more_views.html">
+                <i class="fa fa-check"></i> <b>7.12.</b> More Views
+            </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="8" data-path="sample_pageviews/README.html">
+            
+            <a href="../sample_pageviews/README.html">
+                <i class="fa fa-check"></i> <b>8.</b> Sample PageViews
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="9" data-path="debugging/README.html">
+            
+            <a href="../debugging/README.html">
+                <i class="fa fa-check"></i> <b>9.</b> Debugging
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="10" data-path="testing/README.html">
+            
+            <a href="../testing/README.html">
+                <i class="fa fa-check"></i> <b>10.</b> Testing
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="11" data-path="production/README.html">
+            
+            <a href="../production/README.html">
+                <i class="fa fa-check"></i> <b>11.</b> Production
+            </a>
+            
+            
+        </li>
+    
+
+
+        
+        <li class="divider"></li>
+        <li>
+            <a href="http://www.gitbook.io/" target="blank" class="gitbook-link">Generated using GitBook</a>
+        </li>
+        
+    </ul>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="page-wrapper" tabindex="-1">
+                <div class="book-progress">
+    <div class="bar">
+        <div class="inner" style="width: 46%;min-width: 44%;"></div>
+    </div>
+    <div class="chapters">
+    
+        <a href="../index.html" title="Introduction" class="chapter done new-chapter" data-progress="0" style="left: 0%;"></a>
+    
+        <a href="../about_the_author/README.html" title="About the Author" class="chapter done new-chapter" data-progress="1" style="left: 2%;"></a>
+    
+        <a href="../setup/README.html" title="Requirements" class="chapter done new-chapter" data-progress="2" style="left: 4%;"></a>
+    
+        <a href="../phonegap_and_cordova/README.html" title="PhoneGap and Cordova" class="chapter done new-chapter" data-progress="3" style="left: 6%;"></a>
+    
+        <a href="../phonegap_and_cordova/something.html" title="Build Hello World" class="chapter done " data-progress="3.1" style="left: 8%;"></a>
+    
+        <a href="../phonegap_and_cordova/phonegap_build.html" title="PhoneGap Build" class="chapter done " data-progress="3.2" style="left: 10%;"></a>
+    
+        <a href="../intro_to_famous/README.html" title="Intro to Famous" class="chapter done new-chapter" data-progress="4" style="left: 12%;"></a>
+    
+        <a href="../intro_to_famous/gotchas.html" title="Gotchas" class="chapter done " data-progress="4.1" style="left: 14%;"></a>
+    
+        <a href="../full_app/README.html" title="Building the App" class="chapter done new-chapter" data-progress="5" style="left: 16%;"></a>
+    
+        <a href="../full_app/directory_structure.html" title="Directory Structure" class="chapter done " data-progress="5.1" style="left: 18%;"></a>
+    
+        <a href="../full_app/localization.html" title="localization" class="chapter done " data-progress="5.10" style="left: 20%;"></a>
+    
+        <a href="../full_app/configxml.html" title="config.xml" class="chapter done " data-progress="5.2" style="left: 22%;"></a>
+    
+        <a href="../full_app/css_styles.html" title="CSS Styles" class="chapter done " data-progress="5.3" style="left: 24%;"></a>
+    
+        <a href="../full_app/credentialsjson.html" title="credentials.json" class="chapter done " data-progress="5.4" style="left: 26%;"></a>
+    
+        <a href="../full_app/indexhtml.html" title="index.html" class="chapter done " data-progress="5.5" style="left: 28%;"></a>
+    
+        <a href="../full_app/mainjs.html" title="main.js" class="chapter done " data-progress="5.6" style="left: 30%;"></a>
+    
+        <a href="../full_app/requireconfig.html" title="require.config" class="chapter done " data-progress="5.6.1" style="left: 32%;"></a>
+    
+        <a href="../full_app/general.html" title="general" class="chapter done " data-progress="5.6.2" style="left: 34%;"></a>
+    
+        <a href="../full_app/setting_up_context.html" title="MainContext" class="chapter done " data-progress="5.6.3" style="left: 36%;"></a>
+    
+        <a href="../full_app/main.html" title="Main" class="chapter done " data-progress="5.6.3.1" style="left: 38%;"></a>
+    
+        <a href="../full_app/footer.html" title="Footer" class="chapter done " data-progress="5.6.3.2" style="left: 40%;"></a>
+    
+        <a href="../full_app/popover.html" title="Popover" class="chapter done " data-progress="5.6.3.3" style="left: 42%;"></a>
+    
+        <a href="../full_app/toast.html" title="Toast" class="chapter done " data-progress="5.6.3.4" style="left: 44%;"></a>
+    
+        <a href="../full_app/device_readyjs.html" title="device_ready.js" class="chapter done " data-progress="5.7" style="left: 46%;"></a>
+    
+        <a href="../full_app/routerjs.html" title="router.js" class="chapter  " data-progress="5.8" style="left: 48%;"></a>
+    
+        <a href="../full_app/routes,_viewtoview,_storedtransitions.html" title="routes, ViewToView, StoredTransitions" class="chapter  " data-progress="5.8.1" style="left: 50%;"></a>
+    
+        <a href="../full_app/historyjs.html" title="history.js" class="chapter  " data-progress="5.8.2" style="left: 52%;"></a>
+    
+        <a href="../full_app/defaultroute.html" title="defaultRoute" class="chapter  " data-progress="5.8.3" style="left: 54%;"></a>
+    
+        <a href="../full_app/cache.html" title="cache" class="chapter  " data-progress="5.8.4" style="left: 56%;"></a>
+    
+        <a href="../full_app/utilsjs.html" title="utils.js" class="chapter  " data-progress="5.9" style="left: 58%;"></a>
+    
+        <a href="../models__collections/README.html" title="Models / Collections" class="chapter  new-chapter" data-progress="6" style="left: 60%;"></a>
+    
+        <a href="../models__collections/model.html" title="Model" class="chapter  " data-progress="6.1" style="left: 62%;"></a>
+    
+        <a href="../models__collections/collection.html" title="Collection" class="chapter  " data-progress="6.2" style="left: 64%;"></a>
+    
+        <a href="../models__collections/live_updating__streams__websockets.html" title="Live Updating / Streams / Websockets" class="chapter  " data-progress="6.3" style="left: 66%;"></a>
+    
+        <a href="../views/README.html" title="Views" class="chapter  new-chapter" data-progress="7" style="left: 68%;"></a>
+    
+        <a href="../views/directory_structure.html" title="Directory Structure" class="chapter  " data-progress="7.1" style="left: 70%;"></a>
+    
+        <a href="../views/search_profiles.html" title="Search Profiles" class="chapter  " data-progress="7.10" style="left: 72%;"></a>
+    
+        <a href="../views/invite_friends.html" title="Invite Friends" class="chapter  " data-progress="7.11" style="left: 74%;"></a>
+    
+        <a href="../views/more_views.html" title="More Views" class="chapter  " data-progress="7.12" style="left: 76%;"></a>
+    
+        <a href="../views/patterns.html" title="Patterns" class="chapter  " data-progress="7.2" style="left: 78%;"></a>
+    
+        <a href="../views/common_views.html" title="Common Views" class="chapter  " data-progress="7.3" style="left: 80%;"></a>
+    
+        <a href="../views/login.html" title="Login" class="chapter  " data-progress="7.4" style="left: 82%;"></a>
+    
+        <a href="../views/signup.html" title="Signup" class="chapter  " data-progress="7.5" style="left: 84%;"></a>
+    
+        <a href="../views/welcome_screens.html" title="Welcome Screens" class="chapter  " data-progress="7.6" style="left: 86%;"></a>
+    
+        <a href="../views/profile_view.html" title="Profile View" class="chapter  " data-progress="7.7" style="left: 88%;"></a>
+    
+        <a href="../views/inbox.html" title="Inbox" class="chapter  " data-progress="7.8" style="left: 90%;"></a>
+    
+        <a href="../views/wizards.html" title="Send Message Wizard" class="chapter  " data-progress="7.9" style="left: 92%;"></a>
+    
+        <a href="../sample_pageviews/README.html" title="Sample PageViews" class="chapter  new-chapter" data-progress="8" style="left: 94%;"></a>
+    
+        <a href="../debugging/README.html" title="Debugging" class="chapter  new-chapter" data-progress="9" style="left: 96%;"></a>
+    
+        <a href="../testing/README.html" title="Testing" class="chapter  " data-progress="10" style="left: 98%;"></a>
+    
+        <a href="../production/README.html" title="Production" class="chapter  " data-progress="11" style="left: 100%;"></a>
+    
+    </div>
+</div>
+
+                <div class="page-inner">
+                
+                    <section class="normal" id="section-gitbook_1651">
+                    
+                        <h1 id="device_ready-js">device_ready.js</h1>
+<h2 id="waiting-for-onready-to-be-ready">Waiting for .onReady to be...ready</h2>
+<p>At the start we&#39;re creating some promises that will get resolved in <code>init</code>.</p>
+<pre><code>test: &quot;hello&quot;,
+readyDeferred: readyDeferred,
+ready: readyDeferred.promise(),
+init: function(){
+    var that = this;
+</code></pre><p>Are we running on a phone/emulator with access to native functions? (we call this <code>usePg</code>)</p>
+<pre><code>    App.Data.usePg = false;
+    if (navigator.userAgent.match(/(iPhone|iPod|iPad|Android|BlackBerry)/)) {
+        // Yes, we&#39;re running on a phone/emulator
+        App.Data.usePg = true;
+    }
+
+    // Trigger .onReady
+</code></pre><p>Let&#39;s see if we&#39;re in the browser, aka In Development.If we are, we&#39;ll manually call <code>onReady</code> because the native plugin would never do it.</p>
+<pre><code>    if(!App.Data.usePg){
+        // Yes, we&#39;re running in a browser
+        that.onReady();
+    }
+</code></pre><p>The following lines are to make sure the <code>onReady</code> promise gets resolved. Just in case the &quot;deviceready&quot; listener on the document wasn&#39;t already on there, we add it. If it has already resolved (from the previous addition, in index.html) then <code>GLOBAL_onReady</code> would have been set previously.</p>
+<pre><code>    if(GLOBAL_onReady === true){
+        that.onReady();
+    } else {
+        document.addEventListener(&quot;deviceready&quot;, function(){
+            that.onReady();
+        }, false);
+    }
+</code></pre><h2 id="-onready-function">.onReady function</h2>
+<p>In the .onReady function, we enable many different functions, as long as <code>App.Data.usePg == true</code>.</p>
+<h3 id="error-tracking-via-track-js">error tracking via track.js</h3>
+<p>Notice that we&#39;re only enabling track.js on devices, in production.
+This reduces clutter in your error logs, and keeps your debugging local.</p>
+<pre><code>        if(App.Data.usePg &amp;&amp; App.Prod){
+
+            // lazy-load track.js
+            var script = document.createElement( &#39;script&#39; );
+            script.type = &#39;text/javascript&#39;;
+            script.src = &#39;src/lib2/track.js&#39;;
+            // $(script).attr(&#39;data-customer&#39;,&#39;2138571d0e004d109396748e01e291a0&#39;);
+            $(&quot;body&quot;).append( script );
+
+            // Need to init it first
+            console.error();
+
+            //override the error function (the immediate call function pattern is used for data hiding)
+            console.error = (function () {
+              //save a reference to the original error function.
+              var originalConsole = console.error;
+              //this is the function that will be used instead of the error function
+              function myError (stackTrace) {
+                // alert( &#39;Error is called. &#39; );
+                try {
+                    trackJs.track(stackTrace);
+                }catch(err){
+                    console.log(&#39;trackJs.track non-existant for now&#39;);
+                }
+
+                //the arguments array contains the arguments that was used when console.error() was called
+                originalConsole.apply( this, arguments );
+              }
+              //return the function which will be assigned to console.error
+              return myError;
+            })();
+
+            // // Testing in production
+            // window.setTimeout(function(){
+            //     // Throw a failure
+            //     throw WeAreInProduction
+            // },3000);
+
+        }
+</code></pre><h3 id="pausing">Pausing</h3>
+<pre><code>        // Pausing (exiting)
+        document.addEventListener(&quot;pause&quot;, function(){
+            // Mark as Paused
+            // - this prevents Push Notifications from activating all at once when Resuming
+
+            App.Data.paused = true;
+            App.Data.was_paused = true;
+
+        }, false);
+</code></pre><h3 id="resuming">Resuming</h3>
+<pre><code>        // Resume
+        // - coming back to application
+        document.addEventListener(&quot;resume&quot;, function(){
+            // Gather existing Push Notifications and see if we should summarize them, or show individually (confirm, etc.)
+
+            App.Events.trigger(&#39;resume&#39;);
+
+            App.Data.paused = false;
+            App.Data.was_paused = true;
+
+            // Run 1 second after returning
+            // - collecting all the Push Notifications into a queue
+            // - enough time for all Push events to be realized
+            setTimeout(function(){
+
+                App.Data.paused = false;
+                App.Data.was_paused = false;
+
+                // // Get queue
+                // // - more than 1 item in queue?
+                // // - different types of items?
+                // switch (App.Data.notifications_queue.length){
+                //     case 0:
+                //         // No messages
+                //         break;
+                //     case 1:
+                //         // Only a single message, use normal
+                //         Utils.process_push_notification_message(App.Data.notifications_queue.pop());
+                //         break;
+                //     default:
+                //         // Multiple notifications
+                //         // - get last added
+                //         // alert(App.Data.notifications_queue.length + &#39; Push Notifications Received. Latest Processed&#39;);
+                //         Utils.process_push_notification_message(App.Data.notifications_queue.pop());
+                //         App.Data.notifications_queue = [];
+                //         break;
+                // }
+                // var queue = App.Data.notifications_queue.concat([]);
+
+                // - assuming 1 type of Push Notification only at this time
+
+            },1000);
+
+        }, false);
+</code></pre><h3 id="menu-button">Menu button</h3>
+<pre><code>        // Init MENU button on Android (not always there?)
+        document.addEventListener(&quot;menubutton&quot;, function(){
+            // - only launches the settings if we&#39;re on the main view
+            App.history.navigate(&#39;settings&#39;);
+        }, false);
+
+        // Init BACK button on Android
+        // - disable default first
+        document.addEventListener(&quot;backbutton&quot;, function(killa){
+            App.Events.emit(&#39;backbutton&#39;);
+            killa.stopPropagation();
+            killa.preventDefault();
+            return false;
+        }, true);
+</code></pre><h3 id="online-offline-state">Online / Offline state</h3>
+<pre><code>        // // Online/Offline state
+
+        // //Create the View
+        // // - render too
+        // App.Data.GlobalViews.OnlineStatus = new App.Views.OnlineStatus();
+        // App.Data.GlobalViews.OnlineStatus.render();
+
+        // // Online
+        // // - remove &quot;not online&quot;
+        // document.addEventListener(&quot;online&quot;, function(){
+        //  // Am now online
+        //  // - emit an event?
+        //  App.Data.GlobalViews.OnlineStatus.trigger(&#39;online&#39;);
+
+        // }, false);
+        // document.addEventListener(&quot;offline&quot;, function(){
+        //  // Am now online
+        //  // - emit an event?
+        //  App.Data.GlobalViews.OnlineStatus.trigger(&#39;offline&#39;);
+
+        // }, false);
+</code></pre><h2 id="back-button">Back button</h2>
+<h3 id="in-browser-development-capturing-of-the-delete-backspace-button">In-Browser (development) capturing of the DELETE/Backspace button</h3>
+<pre><code>        // Back button capturing in Browser
+        if(!App.Data.usePg){
+            $(document).keydown(function (e) {
+                var preventKeyPress;
+                if (e.keyCode == 8) {
+                    var d = e.srcElement || e.target;
+                    switch (d.tagName.toUpperCase()) {
+                        case &#39;TEXTAREA&#39;:
+                            preventKeyPress = d.readOnly || d.disabled;
+                            break;
+                        case &#39;INPUT&#39;:
+                            preventKeyPress = d.readOnly || d.disabled ||
+                                (d.attributes[&quot;type&quot;] &amp;&amp; $.inArray(d.attributes[&quot;type&quot;].value.toLowerCase(), [&quot;radio&quot;, &quot;checkbox&quot;, &quot;submit&quot;, &quot;button&quot;]) &gt;= 0);
+                            break;
+                        case &#39;DIV&#39;:
+                            preventKeyPress = d.readOnly || d.disabled || !(d.attributes[&quot;contentEditable&quot;] &amp;&amp; d.attributes[&quot;contentEditable&quot;].value == &quot;true&quot;);
+                            break;
+                        default:
+                            preventKeyPress = true;
+                            break;
+                    }
+                }
+                else
+                    preventKeyPress = false;
+
+                if (preventKeyPress){
+                    e.preventDefault();
+                    App.Events.emit(&#39;backbutton&#39;);
+                }
+            });
+        }
+</code></pre><h3 id="on-device-back-button-android-">On Device Back button (Android)</h3>
+<pre><code>        // Init BACK button on Android
+        // - disable default first
+        document.addEventListener(&quot;backbutton&quot;, function(killa){
+            App.Events.emit(&#39;backbutton&#39;);
+            killa.stopPropagation();
+            killa.preventDefault();
+            return false;
+        }, true);
+</code></pre><h3 id="gps-updates">GPS Updates</h3>
+<pre><code>    // GPS updates
+    runGpsUpdate: function(){
+        // We only want one running at a time
+        if(App.Cache.running_gps_update === true){
+            return;
+        }
+
+        App.Cache.running_gps_update = true;
+
+        var runGpsUpdateFunc = function(){
+            navigator.geolocation.getCurrentPosition(function(position){
+                console.log(&#39;coords&#39;);
+                console.log(position.coords);
+                App.Events.emit(&#39;updated_user_current_location&#39;);
+                App.Cache.geolocation_coords = position.coords;
+                // alert(position.coords);
+                // alert(position.coords.latitude);
+                // $.ajax({
+                //     url: Credentials.server_root + &#39;user_coords&#39;,
+                //     cache: false,
+                //     method: &#39;POST&#39;,
+                //     success: function(){
+                //         console.log(&#39;Made call OK&#39;);
+                //     }
+                // });
+
+            }, function(err){
+                console.log(&#39;GPS failure&#39;);
+                console.log(err);
+            });
+
+            window.setTimeout(runGpsUpdateFunc, 1000 * 60 * 5); // 5 minutes
+        };
+
+        // runGpsUpdateFunc(); // uncomment for coordinate uploads
+
+    },
+</code></pre><h2 id="push-notifications">Push Notifications</h2>
+<h3 id="initializing-push-notifications">Initializing Push Notifications</h3>
+<pre><code>    initPush: function(){
+        console.info(&#39;Registering for PushNotification&#39;);
+
+        // Disable Push in debug mode
+        if(App.Prod != true){
+            console.error(&#39;Development mode&#39;);
+            return;
+        }
+        try {
+            App.Data.pushNotification = window.plugins.pushNotification;
+            if (device.platform.toLowerCase() == &#39;android&#39;) {
+                // alert(&#39;android push&#39;);
+
+                App.Data.pushNotification.register(function(result){
+                    console.log(&#39;Push Setup OK&#39;);
+                    // alert(&#39;Push Setup OK&#39;);
+                    // alert(&#39;success w/ Push Notifications&#39;);
+                    // alert(&#39;Push setup ok&#39;);
+                    // App.Utils.Notification.debug.temporary(&#39;Push Setup OK&#39;); // not actually ok, not registering, nothing sending to it
+
+                }, function(err){
+                    alert(&#39;failed Push Notifications&#39;);
+                    // App.Utils.Notification.debug.temporary(&#39;Failed Push Notification Setup&#39;);
+                    console.error(err);
+                    // alert(err);
+                },
+                {
+                    &quot;senderID&quot;: &quot;690693430367&quot;, //&quot;312360250527&quot;,
+                    &quot;ecb&quot;: &quot;onNotificationGCM&quot;
+                });
+            } else if (device.platform.toLowerCase() == &#39;ios&#39;) {
+                // // alert(&#39;not&#39;);
+                App.Data.pushNotification.register(function(token){
+                    console.log(&#39;ios token&#39;);
+                    console.log(token);
+
+                    // Write the key
+                    // - see if the user is logged in
+                    var i = 0;
+                    var pushRegInterval = function(){
+                        window.setTimeout(function(){
+                            // See if logged in
+                            if(App.Data.User.get(&#39;_id&#39;)){
+                                App.Data.User.set({ios: [{reg_id: token, last: new Date()}]});
+                                App.Data.User.save(); // update the user
+                            } else {
+                                // Try running again
+                                // App.Utils.Notification.debug.temp(&#39;NLI - try again&#39; + i);
+                                console.log(&#39;Not logged in - try android registration update again&#39;);
+                                console.log(App.Data.User.get(&#39;_id&#39;));
+                                i++;
+                                pushRegInterval();
+                            }
+                        },3000);
+                    };
+                    pushRegInterval();
+
+
+                },function(err){
+                    console.log(&#39;Failed ios Push notifications&#39;);
+                    console.log(err);
+                },   {&quot;badge&quot;:&quot;true&quot;,&quot;sound&quot;:&quot;true&quot;,&quot;alert&quot;:&quot;true&quot;,&quot;ecb&quot;:&quot;onNotificationAPN&quot;});
+            }
+        }
+        catch(err) {
+            // txt=&quot;There was an error on this page.\n\n&quot;;
+            // txt+=&quot;Error description: &quot; + err.message + &quot;\n\n&quot;;
+            // alert(txt);
+            // alert(&#39;Push Error2&#39;);
+            if(App.Data.usePg){
+                console.error(&#39;Push Error 2&#39;);
+            }
+
+            // console.log(err);
+            // App.Utils.Notification.debug.temporary(&#39;Push Error&#39;);
+        }
+    },
+</code></pre><h3 id="handling-incoming-push-notifications">Handling incoming Push Notifications</h3>
+<p>function onNotificationAPN(event) {
+    var pushNotification = window.plugins.pushNotification;
+    console.log(&quot;Received a notification! &quot; + event.alert);
+    console.log(&quot;event sound &quot; + event.sound);
+    console.log(&quot;event badge &quot; + event.badge);
+    console.log(&quot;event &quot; + event);
+    if (event.alert) {
+        navigator.notification.alert(event.alert);
+    }
+    if (event.badge) {
+        console.log(&quot;Set badge on  &quot; + pushNotification);
+        pushNotification.setApplicationIconBadgeNumber(function(){
+            console.log(&#39;succeeded at something in pushNotification for iOS&#39;);
+        }, event.badge);
+    }
+    if (event.sound) {
+        var snd = new Media(event.sound);
+        snd.play();
+    }
+};</p>
+<p>// GCM = Google Cloud Messag[something]
+function onNotificationGCM(e){
+    // Received a notification from GCM
+    // - multiple types of notifications</p>
+<pre><code>// App.Utils.Notification.debug.temp(&#39;New Notification: &#39; + e.event);
+// alert(&#39;onNotificationGCM&#39;);
+console.log(&#39;onNotificationGCM&#39;);
+
+switch( e.event ){
+    case &#39;registered&#39;:
+        // alert(&#39;registered&#39;);
+        // Registered with GCM
+        if ( e.regid.length &gt; 0 ) {
+            // Your GCM push server needs to know the regID before it can push to this device
+            // here is where you might want to send it the regID for later use.
+            // alert(&#39;registration id: &#39; + e.regid);
+            // App.Utils.Notification.debug.temp(&#39;Reg ID:&#39; + e.regid.substr(0,25) + &#39;...&#39;);
+            console.log(&#39;Android registration ID for device&#39;);
+            console.log(e.regid);
+
+            // // Got the registration ID
+            // // - we&#39;re assuming this happens before we&#39;ve done alot of other stuff
+            // App.Credentials.android_reg_id = e.regid;
+
+            // Write the key
+            // - see if the user is logged in
+            var i = 0;
+            var pushRegInterval = function(){
+                window.setTimeout(function(){
+                    // See if logged in
+                    if(App.Data.User.get(&#39;_id&#39;)){
+                        // Sweet, logged in, update user&#39;s android_reg_id
+                        // alert(&#39;saving user!&#39;); // ...
+                        // alert(App.Data.User.get(&#39;_id&#39;));
+                        // alert(e.regid);
+                        App.Data.User.set({android: [{reg_id: e.regid, last: new Date()}]});
+                        App.Data.User.save(); // update the user
+
+                        // App.Plugins.Minimail.updateAndroidPushRegId(App.Credentials.android_reg_id);
+                    } else {
+                        // Try running again
+                        // App.Utils.Notification.debug.temp(&#39;NLI - try again&#39; + i);
+                        console.log(&#39;Not logged in - try android registration update again&#39;);
+                        console.log(App.Data.User.get(&#39;_id&#39;));
+                        i++;
+                        pushRegInterval();
+                    }
+                },3000);
+            };
+            pushRegInterval();
+
+        }
+    break;
+
+    case &#39;message&#39;:
+        // if this flag is set, this notification happened while we were in the foreground.
+        // you might want to play a sound to get the user&#39;s attention, throw up a dialog, etc.
+
+        // alert(&#39;message received&#39;);
+        // alert(JSON.stringify(e.payload));
+
+        // Capture and then wait for a half-second to see if any other messages are incoming
+        // - don&#39;t want to overload the person
+
+        // alert(&#39;Message!&#39;);
+        console.log(e);
+        console.log(JSON.stringify(e));
+
+        if (e.foreground){
+            // We were in the foreground when it was incoming
+            // - process right away
+            console.log(&#39;In FOREground&#39;);
+
+            // alert(&#39;Alert Triggered&#39;);
+
+            var payload = e.payload.payload;
+            var alert_trigger_id = payload.alert_trigger_id;
+
+            // Go to alert_trigger
+            Backbone.history.navigate(&#39;alert_trigger/&#39; + alert_trigger_id, {trigger: true});
+
+            require([&quot;utils&quot;], function (Utils) {
+                // Utils.process_push_notification_message(e);
+            });
+
+        } else {
+            // Not in the foreground
+            // - they clicked the notification
+            // - process all of them at once
+            // alert(&#39;in background&#39;);
+
+            var payload = e.payload.payload;
+            var alert_trigger_id = payload.alert_trigger_id;
+
+            // Go to alert_trigger
+            Backbone.history.navigate(&#39;alert_trigger/&#39; + alert_trigger_id, {trigger: true});
+
+            console.log(&#39;In BACKground!&#39;);
+            if (e.coldstart){
+                // App wasn&#39;t previously running, so it is starting up
+                console.log(&#39;In COLDstart&#39;);
+            } else {
+                // App is probably already displaying some other page
+            }
+
+            // add to process queue
+            // - the last/latest one gets analyzed
+            console.log(&#39;ADDING TO PUSH QUEUE&#39;);
+            // App.Data.notifications_queue.push(e);
+
+        }
+
+
+
+    break;
+
+    case &#39;error&#39;:
+        alert(&#39;GCM error&#39;);
+        alert(e.msg);
+    break;
+
+    default:
+        alert(&#39;An unknown GCM event has occurred&#39;);
+    break;
+}
+</code></pre><p>};</p>
+
+                    
+                    </section>
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="../full_app/toast.html" class="navigation navigation-prev " aria-label="Previous page: Toast"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="../full_app/routerjs.html" class="navigation navigation-next " aria-label="Next page: router.js"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="../gitbook/jsrepl/jsrepl.js" id="jsrepl-script"></script>
+<script src="../gitbook/app.js"></script>
+
+    
+    <script src="http://cdn.mathjax.org/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-mathjax/plugin.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>
