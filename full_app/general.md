@@ -57,8 +57,11 @@ The version number parsed out of `config.xml` is used for analytics and displaye
     }
 
 ### Analytics
-misc (update body background, todo splash screen removal)
-Analytics
+
+Load Google Analytics (cordova plugin).
+
+    // Google Analytics Plugin
+    Utils.Analytics.init();
 
 ### Device Ready init
 

@@ -27,7 +27,7 @@ Back to `www/views/Misc/Login.js`, we initialize the PageView by applying all of
         View.apply(this, arguments);
         this.options = options;
 
-We've already `var UserModel = require('models/user');`'d our model, now we create an empty User to hold our credentials to login with later.
+We've already required (`var UserModel = require('models/user');`) our model, now we create an empty User to hold our credentials to login with later.
 
         // Model
         this.model = new UserModel.User();
@@ -53,7 +53,7 @@ You'll notice this pattern used frequently:
 
         this.layout.Views = [];
 
-> Notice that the SequentialLayout is going to sequenceFrom "itself-ish" later
+> Notice that the SequentialLayout is going to sequenceFrom "itself" i.e. `this.layout.views` later
 
 
 Now we add our surfaces, in order.

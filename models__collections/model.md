@@ -28,7 +28,7 @@ Allows us to query nested attributes in a model. We can do:
 
     ourModel.get('data.nested.attr');
 
-instead of some bs like:
+instead of repetitive code like:
 
     if(ourModel.get('data') && ourModel.get('data').nested && ourModel.get('data').nested.attr){...}
 
@@ -37,7 +37,7 @@ instead of some bs like:
 
 #### Backbone.UniqueModel
 
-Gives us an App-wide (localStorage-backed, I believe) version of *the same* model everytime we instantiate.
+Gives us an App-wide version of *the same* model everytime we instantiate.
 
     var ActionModel = require('models/action');
     var a = ActionModel.Action({

@@ -14,5 +14,5 @@ First we load our `history.js` file.
 
 ### Routes, Views, and Stored Transitions
 
-Read the subtopic.
+Read the subtopics.
 

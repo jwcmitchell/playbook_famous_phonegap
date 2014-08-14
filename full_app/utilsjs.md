@@ -2,17 +2,6 @@
 
 I wanted a more central place to handle Utility functions that I was repeatedly calling. `utils.js` serves that purpose.
 
-QuickModel
-dataModelReplaceOnSurface
-CheckFlag, PostFlag
-Locale
-Analytics
-Pictures
-Notification.Toast
-Base 64 and utf8 encoding
-
-
-
     var Utils = {
 
 
@@ -59,7 +48,7 @@ Sample usage:
         var localFlag = 'highlights/home';
         Utils.CheckFlag(localFlag).then(function(){
             // popover
-            that.launch_help_popover();
+            alert('this will only happen once!');
             // update flag
             Utils.PostFlag(localFlag, true);
         });
@@ -655,9 +644,13 @@ We can now run our default actions based on the payload of the Push Notification
             return words.join(' ');
         },
 
+#### Random integer
+
         randomInt: function(min, max){
             return Math.floor(Math.random() * (max - min + 1)) + min;
         },
+
+#### Fixed int or none
 
         toFixedOrNone: function(val, len){
             var tmp = parseFloat(val).toFixed(len).toString();
@@ -667,43 +660,5 @@ We can now run our default actions based on the payload of the Push Notification
             return isNaN(tmp) ? '--' : tmp;
         },
 
-        displayGameListDate: function(carvoyant_datetime, short_or_long){
-            // return Today, Yesterday, or the actual date
-            var date_string = '';
-            var m;
-            try {
-                if(carvoyant_datetime.length == 20){
-                    m = moment(carvoyant_datetime, "YYYYMMDD HHmmss Z"); // 20131106T230554+0000
-                } else {
-                    m = moment(carvoyant_datetime);
-                }
-            } catch(err){
-                return "";
-            }
-
-            if(!m.isValid()){
-                return "Unknown"
-            }
-
-            var now = moment().startOf('day');
-
-            if(now.diff(m.startOf('day'), 'days') == 0){
-                return "Today";
-            }
-            if(now.diff(m.startOf('day'), 'days') == 1){
-                return "Yesterday";
-            }
-
-            if(short_or_long == "long"){
-                return m.format("MMMM Do");
-            } else {
-                return m.format("MMM Do");
-            }
-        },
-
-    };
-
-    return Utils;
 
 
-});

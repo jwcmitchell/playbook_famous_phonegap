@@ -19,6 +19,6 @@ Notable directories include `common` and `Misc`.
 
 ### Naming Conventions
 
-Generally, keep everything CamelCased and singluar in filenames.
-- need more detail
+- models: singluar. lowercase (slugged)
+- views: generally singular, CamelCased
 

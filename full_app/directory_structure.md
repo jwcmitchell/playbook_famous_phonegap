@@ -3,7 +3,7 @@
 
 Ordinary, default structure of a PhoneGap app:
 
-    /root
+    /app_name
     ./hooks
     ./merges
     ./platforms

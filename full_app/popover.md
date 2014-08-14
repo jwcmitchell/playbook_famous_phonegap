@@ -1,6 +1,6 @@
 # Popover
 
-We'll break this out into it's own file, so defined/called as a function immediately.
+> Eventually this will be moved to Components.CreateStandardPopover (or similar function)
 
     var createPopover = function(){
 

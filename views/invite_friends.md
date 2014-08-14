@@ -52,7 +52,7 @@ You'll notice this pattern used frequently:
 
         this.layout.Views = [];
 
-> Notice that the SequentialLayout is going to sequenceFrom "itself-ish" later
+> Notice that the SequentialLayout is going to sequenceFrom "itself" i.e. `this.layout.views` later
 
 
 Now we add our surfaces, in order.

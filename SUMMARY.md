@@ -1,5 +1,6 @@
 # Summary
 
+* [Introduction](README.md)
 * [FAQs](faqs/README.md)
 * [Setup / Requirements](setup/README.md)
 * [PhoneGap and Cordova](phonegap_and_cordova/README.md)
@@ -8,7 +9,7 @@
    * [PhoneGap Build](phonegap_and_cordova/phonegap_build.md)
 * [Intro to Famous](intro_to_famous/README.md)
    * [Gotchas](intro_to_famous/gotchas.md)
-* [Building the App](full_app/README.md)
+* [Building the Waiting App](full_app/README.md)
    * [Directory Structure](full_app/directory_structure.md)
    * [config.xml](full_app/configxml.md)
    * [CSS Styles](full_app/css_styles.md)
