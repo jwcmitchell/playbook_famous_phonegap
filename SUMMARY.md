@@ -50,6 +50,7 @@
    * [Invite Friends](views/invite_friends.md)
    * [More Views](views/more_views.md)
 * [Debugging](debugging/README.md)
+* [Server (node.js)](debugging/server_nodejs.md)
 * [Production](production/README.md)
    * [Android](production/android.md)
    * [iOS](production/ios.md)
