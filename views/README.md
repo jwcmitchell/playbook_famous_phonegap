@@ -19,6 +19,8 @@ create content, add surfaces
 inOutTransition
 submitting via button press, ajax request for login/signup
 
+UIElement! - former hack reactor folks doing some awesome work. Should integrate it.
+
 signup
 requesting multiple fields, but not username!
 - server handles most of the profile-building and whatnot, simply returns success/fail of creation

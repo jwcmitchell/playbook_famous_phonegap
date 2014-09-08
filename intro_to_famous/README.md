@@ -41,3 +41,10 @@ https://github.com/Famous/examples
 These examples are useful if you've forgotten how basic Famo.us components works. No widgets though!
 
 
+### More Links
+
+https://hackpad.com/Famo.us-links-kPsHMaDFboE
+
+http://famousco.de/
+
+
