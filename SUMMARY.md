@@ -39,6 +39,7 @@
 * [Views](views/README.md)
    * [Directory Structure](views/directory_structure.md)
    * [Patterns](views/patterns.md)
+   * [Keyboard](views/keyboard.md)
    * [Planes / Layers](views/useplane.md)
    * [Common Views](views/common_views.md)
    * [Login](views/login.md)

@@ -4,7 +4,7 @@
 ### basic debugging Patterns
 - serve using heroku's `foreman` and the handy `ngrok`.
 - using Chrome console and localhost
-- remote logging using trackjs
+- remote logging using TrackJS
 
 ### Android: Eclipse debugging for native problems
 
