@@ -15,7 +15,7 @@ In our `main.js` where we define `App` you'll notice:
         popover: 1000
     }
 
-These are some example values. Notice the "room" between numbers; this makes it easy to define something as "just above header"
+These are some example values. Notice the "room" between numbers; this makes it easy to define something as "just above the header"
 
 `utils.js` contains our `usePlane()` functionality. It accepts a `plane_name` option that corresponds to one of the constants from above. It returns a StateModifier with a slight z-space transform to move it to the correct Plane/Layer.
 
