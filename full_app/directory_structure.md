@@ -37,6 +37,7 @@ And in our `www` directory we have our app-specific structure:
         main.js
         router.js
         text.js
+        utils.js
     .gitignore
     config.xml
     icon.png

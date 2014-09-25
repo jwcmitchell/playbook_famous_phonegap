@@ -70,6 +70,8 @@ Now we can easily modify the position, scale, opacity, etc. of the Surface.
 
 ### FrontMod (Z-space transforms)
 
+> Check out the Utils.usePlane function (Chapter 6.9) for a simpler solution to the Z-space problems. 
+
 A common problem you'll encounter is one Surface being "on top of" or "in front" of another Surface, causing clicks to fail, or the "behind" Surface to not be visible.
 
 Z-space positioning is affected by 3 things:
@@ -77,7 +79,7 @@ Z-space positioning is affected by 3 things:
 - Famo.us Transforms
 - CSS z-index
 
-If you have overlapping Surfaces, always use Transforms to get it resolved. For example:
+If you have overlapping Surfaces, always use Transforms to get it resolved. Not using Transforms can result in unexpected behaviour, such as some surfaces being behind others (even though you THINK you have them rendering in-order in your code...it does not matter) For example:
 
     var SlightlyInFrontMod = new Modifier({
         // move forward in z-space by 0.0001
@@ -86,7 +88,7 @@ If you have overlapping Surfaces, always use Transforms to get it resolved. For 
     this.someView.add(SlightlyInFrontMod).add(this.someView.Surface);
     this.someView.add(this.anotherSurfaceThatWillBeBehind);
 
-Avoid using the CSS `z-index` property, it'll just cause problems with your Transforms.
+AVOID using the CSS `z-index` property, it'll just cause problems with your Transforms.
 
 
 

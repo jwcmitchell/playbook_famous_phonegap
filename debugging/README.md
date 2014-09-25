@@ -38,16 +38,16 @@ When you deploy your app on devices, you'll want to know when things break (and 
 The TrackJS code included in the Waiting App in th `device_ready.js` file. After checking if the App is being run in Production, on a device, it loads the TrackJS script.
 
 
-                // lazy-load track.js
-                var script = document.createElement( 'script' );
-                script.type = 'text/javascript';
-                script.src = 'src/lib2/track.js';
-                // $(script).attr('data-token', Credentials.trackjs_token);
+    // lazy-load track.js
+    var script = document.createElement( 'script' );
+    script.type = 'text/javascript';
+    script.src = 'src/lib2/track.js';
+    // $(script).attr('data-token', Credentials.trackjs_token);
 
-                // trackjs options
-                window._trackJs = Credentials.trackjs_opts;
-                window._trackJs.version = App.ConfigImportant.Version;
-                $("body").append( script );
+    // trackjs options
+    window._trackJs = Credentials.trackjs_opts;
+    window._trackJs.version = App.ConfigImportant.Version;
+    $("body").append( script );
 
 After login, TrackJS is also updated with the user's email address (in `models/user.js`
 
@@ -67,4 +67,7 @@ Google Analyticsis used to track PageView changes, so the `router.js` file conta
 
 > This only works for Android, you have to use TestFlight for iOS
 
-To easily distribute your app to folks on Android, simply copy the links on PhoneGap Build. They should include a `qr_code` string.
+To easily distribute your app to folks on Android, simply copy the links on PhoneGap Build. They should include a `?qr_code` string.
+
+
+

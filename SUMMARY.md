@@ -1,11 +1,12 @@
 # Summary
 
 * [Introduction](README.md)
+* [Pros and Cons of Hybrid vs. Native Apps](pros_and_cons_of_hybrid_vs_native_apps.md)
 * [FAQs](faqs/README.md)
 * [Setup / Requirements](setup/README.md)
 * [PhoneGap and Cordova](phonegap_and_cordova/README.md)
    * [Build Hello World](phonegap_and_cordova/something.md)
-   * [Build Waiting/Internal App](phonegap_and_cordova/build_waitinginternal_app.md)
+   * [Build the Waiting App](phonegap_and_cordova/build_waitinginternal_app.md)
    * [PhoneGap Build](phonegap_and_cordova/phonegap_build.md)
 * [Intro to Famous](intro_to_famous/README.md)
    * [Gotchas](intro_to_famous/gotchas.md)

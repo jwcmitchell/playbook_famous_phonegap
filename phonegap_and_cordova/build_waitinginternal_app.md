@@ -1,9 +1,9 @@
-# Build Waiting/Internal App
+# Build Waiting App
 
 
 ### Links
 
-Internal/Waiting App (GitHub Repo):  https://github.com/nicholasareed/internal_app
+Waiting App (GitHub Repo):  https://github.com/nicholasareed/waiting_app
 
 ### Local Steps
 
@@ -26,7 +26,7 @@ Now we'll remove the `www` directory and replace it with a remote repo.
 
     // still in waiting_app/
     $ rm -rf www
-    $ git clone git@github.com:nicholasareed/internal_app.git www
+    $ git clone git@github.com:nicholasareed/waiting_app.git www
 
 > Notice the trailing `www` on line directly above me
 

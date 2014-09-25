@@ -1,30 +1,7 @@
 # Views
 
+Every app is going to look different, but there are also common Views across many apps. Login pages, popovers/modals, welcome screens, and more are prevalent in most successful apps, so we'll provide sample pages for many of the most common. 
 
----
+We'll also cover a number of common view pitfalls, such as handling the native keyboard nicely, or making sure your Content never overlaps your Header. While these are "minor" fixes, they become necessary to build an app that works akin to a native app for an end-user. 
 
-> stub
-
----
-
-Views
-Ok, you’ve got a decent understanding of how we’re choosing which page to display, so now lets begin at the start…what happens when somebody wants to login?
-
-Login (have them create their own Login page)
-structure of PageView and prototypes
-create layout (using HeaderFooterLayout)
-no header, no footer for this view, but you’ll use this pattern frequently
-create content, add surfaces
-- different patterns for creating spacers (either add a new Surface, or a StateModifier)
-inOutTransition
-submitting via button press, ajax request for login/signup
-
-UIElement! - former hack reactor folks doing some awesome work. Should integrate it.
-
-signup
-requesting multiple fields, but not username!
-- server handles most of the profile-building and whatnot, simply returns success/fail of creation
-on success, does a login and continues as normal
-
-Welcome screens (popovers)
-occurs after login or signup, after the user has been populated once (to check if username exists)
+The order of chapters is along the lines of what an end-user is going to see: Login/Signup, Welcome, Profile View, Inbox, etc. 
