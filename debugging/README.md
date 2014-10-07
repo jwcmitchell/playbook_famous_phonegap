@@ -12,7 +12,9 @@ On your Android device, enable Developer mode (on Android 4.x phones, go to `Set
 
 http://www.androidcentral.com/how-enable-developer-settings-android-42
 
-Next, plug your Android phone into your computer and visit `chrome://inspect` in your Chrome browser. This will provide you with a list of connected devices (and webviews) that you can debug!
+Next, plug your Android phone into your computer and visit `chrome://inspect` in your Chrome browser. This will provide you with a list of connected devices (and webviews) that you can debug! 
+
+Note that if you've signed your app, it WILL NOT show up on this list (though your phone will). 
 
 #### Eclipse debugging for native problems
 

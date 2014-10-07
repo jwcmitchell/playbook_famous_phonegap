@@ -1,6 +1,6 @@
 # Welcome!
 
-Available at http://www.practicalguidetomobileapps.com/
+Available at http://www.famousmobileapps.com/
 
 My name is Nicholas Reed. I'm a web developer in the Bay Area, and this is the "Playbook" that I use while developing apps for Android and iOS. I'm a proponent of this technique when you want:
 
