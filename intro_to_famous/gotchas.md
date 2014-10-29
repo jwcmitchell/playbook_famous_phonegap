@@ -91,4 +91,27 @@ If you have overlapping Surfaces, always use Transforms to get it resolved. Not 
 AVOID using the CSS `z-index` property, it'll just cause problems with your Transforms.
 
 
+### Other Modifier and Transform issues  
+
+Notice a problem with the following line? 
+
+    myContext.add(Transform.translate(1,2,0.5)).add(mySurface);
+    
+The `Transform` in that line will have absolutely no effect, and Famo.us won't output any errors! Effectively, you've written:
+
+    myContext.add(undefined).add(mySurface);
+
+You need to wrap all your transforms in a StateModifier, like so: 
+        
+    var myMod = new StateModifier({
+        transform: Transform.translate(1,2,0.5)
+    });
+    myContext.add(myMod).add(mySurface);
+
+
+### FormContainer (and new Context with Z-positioning)  
+
+It _appears_ that when adding a new Context, it does not maintain the Z-space position of any modifiers above it. To fix this, we've provided an option to auto-set the Z-space of the new FormContainer to whatever it's parent Transform is. 
+
+
 

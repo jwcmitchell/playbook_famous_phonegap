@@ -1,10 +1,7 @@
 # Production
 
----
 
-> stub
-
----
+http://wiki.nsbasic.com/Submitting_to_the_iOS_App_Store  
 
 
 Putting your app in the store:
