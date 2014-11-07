@@ -43,8 +43,10 @@ These examples are useful if you've forgotten how basic Famo.us components works
 
 ### More Links
 
-https://hackpad.com/Famo.us-links-kPsHMaDFboE
+Community-edited links: https://hackpad.com/Famo.us-links-kPsHMaDFboE
 
-http://famousco.de/
+Great Resource: http://famousco.de/
+
+Jobs: http://famousjobs.us/
 
 
