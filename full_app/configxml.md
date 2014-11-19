@@ -114,6 +114,31 @@
     </widget>
 
 
+### Gotchas 
+
+#### nothing working, PhoneGap Build giving errors about not being at the latest version (or not showing your app's name when building for the first time)?  
+
+Make sure that the .zip file you upload, or the .git repo you are using to import, has your index.html file AND your config.xml at the root level (not below a www directory). 
+
+WRONG:  
+
+    www/ 
+        js/
+        css/
+        index.html
+        config.xml
+
+CORRECT: 
+
+    js/
+    css/
+    index.html
+    config.xml 
+    
+
+
+#### "feature" vs. "gap:" tags 
+
 When building locally, all of the `<gap...` tags are ignored, and the `<feature...` tags are used. On PhoneGap Build, the opposite holds true. The rest of the tags work for both build locations. Local builds use the `root_dir/config.xml` while PhoneGap Build uses one a directory deeper: `root_dir/www/config.xml`. Because it is annoying to update multiple config files and keep local/remote config files separate, we simply use symbolic links (symlinks) to a single `config.xml` file.
 
     $: cd ~/Sites/hello
