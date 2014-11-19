@@ -2,7 +2,7 @@
 
 
     <?xml version='1.0' encoding='utf-8'?>
-    <widget id="com.nemesis.app.pub" version="0.0.1.52" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <widget id="com.helloworld.app.pub" version="0.1.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" xmlns:cdv="http://cordova.apache.org/ns/1.0">
         <name>Hello World</name>
         <description>
             My First App
@@ -14,7 +14,7 @@
 
         <access origin="*" />
 
-        <preference name="phonegap-version" value="3.4.0" />
+        <preference name="phonegap-version" value="3.6.3" />
 
         <!-- Android SDK Version -->
         <preference name="android-minSdkVersion" value="14" />
