@@ -14,7 +14,7 @@ These PageViews differ slightly from normal PageViews. Additions include:
 - preventing Back after Welcome is complete - the final Welcome screen will usually include `App.history.eraseUntil('all-of-em')` so that additinal Back Button events don't result in a return to the Welcome page(s). 
 
 
-### Addition Welcome Screens
+### Additional Welcome Screens
 
 Following the `welcome/xyz` pattern, you could add additional Welcome screens easily. Common examples include:
 - Upload Profile Picture

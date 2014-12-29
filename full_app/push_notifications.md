@@ -15,6 +15,8 @@ http://www.raywenderlich.com/32960/apple-push-notification-services-in-ios-6-tut
 Use Google Cloud Messaging to obtain the necessary keys.
 http://developer.android.com/google/gcm/gs.html
 
+See also __Chapter 11.1 - Production -> Android__ for more Release/Production setup instructions. 
+
 
 ### Server Side
 

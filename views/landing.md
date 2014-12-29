@@ -1,20 +1,18 @@
-# Login
+# Landing Page
 
-The Login view has no Header or Footer.
-
-It is simply the necessary Surfaces, centered vertically and horizontally.
+Our default landing page is pretty simple: we want to give the user quick options for signing up or logging in from various services (Google+, Facebook, or Email). 
 
 
 ## Route
 
 Helps to know what we're being initialized with!
 
-> Notice that we are not caching the Login View
+> Notice that we are not caching the Landing View
 
 `www/router.js`
 
-    'login' : function(){
-        defaultRoute('Login', 'Misc/Login', arguments, {cache: false});
+    'landing' : function(){
+        defaultRoute('Landing', 'Misc/Landing', arguments, {cache: false});
     },
 
 

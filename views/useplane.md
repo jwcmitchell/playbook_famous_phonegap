@@ -4,7 +4,7 @@ When laying out your Views and Pages, you often want one thing to be in front of
 
 Famo.us wants us to use Z values to manage our front/behind logic, so we combine them with the common gaming programming pattern of using planes or layers with constant names.
 
-In our `main.js` where we define `App` you'll notice:
+In our `main.js` where we define `App` you'll find:
 
 
     Planes: {
@@ -15,10 +15,13 @@ In our `main.js` where we define `App` you'll notice:
         popover: 1000
     }
 
-These are some example values. Notice the "room" between numbers; this makes it easy to define something as "just above the header"
+These are some example values. Notice the room between numbers; this makes it easy to define something as "just above the header" (see examples below). 
+
+    
 
 `utils.js` contains our `usePlane()` functionality. It accepts a `plane_name` option that corresponds to one of the constants from above. It returns a StateModifier with a slight z-space transform to move it to the correct Plane/Layer.
 
+    // in utils.js
     usePlane: function(plane_name, add){
         add = add || 0;
         if(!App.Planes[plane_name]){
@@ -50,3 +53,15 @@ To put something on a Plane:
 
 #### More complex usage
 See example full-page usage, with a Header, Tabs, and Content on the Inbox page in the Waiting App.
+
+
+## Utils.Z
+
+This is another way of moving "slightly above" the current Z-position. 
+
+    context.add(Utils.Z(1)).add(myView);
+    
+    
+
+
+

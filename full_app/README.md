@@ -21,7 +21,7 @@ Make sure you have access to the __Waiting/Internal App__ source code, so you'll
 ### Core Libraries and Plugins
 
 __Famo.us__:
-Used for our Views, currently using 0.2.
+Used for our Views, currently using 0.3 with some modifications
 
 __Require.js__ (http://requirejs.org/)
 

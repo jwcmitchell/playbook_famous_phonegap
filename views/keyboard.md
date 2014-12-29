@@ -1,7 +1,7 @@
 # Forms and Keyboard
 
 
-Using the keyboard introduces a few problems with layout and scrolling. Thankfully, Ionic has released a plugin to make it easier, and it is on PhoneGap Build.
+Using the keyboard introduces a few problems with layout and scrolling. Thankfully, Ionic has released a plugin to make it easier:
 
 https://github.com/driftyco/ionic-plugins-keyboard/tree/3dd0060de1924384a4c1b2b78bef5fa8d786fd8e
 
@@ -10,7 +10,7 @@ When the keyboard opens, depending on the device (iOS versions differ, Android i
 - resize the MainController so that everything fits inside the newly-resized window.
 - capture `Go` or `Submit` pressed on iOS/Android
 
-In `device_ready.js` we do:
+In `device_ready.js` we have:
 
 
         // Keyboard
@@ -154,8 +154,15 @@ and the `addSurfaces` function is:
 Notice that we're preventing event propagation on the FormContainer, and the Submit button is using a SubmitInputSurface (with `value` instead of `content` like a normal Surface).
 
 
+### Preventing the default behavior for a HeaderFooterLayout 
+
+In your `PageView` you can simple overwrite keyboardHandler to prevent any fancy keyboard layout events (scrolling, hiding header). 
+
+    PageView.prototype.keyboardHandler = function(){
+        // no keyboard logic
+    };
+    
+
 ### Gotchas
 
-On Android, the keyboard height may change depending on whether the "microphone" is shown. This results in a nasty white (or whatever background you have) line about 30-40px in height above the keyboard...occasionally. (Fix welcome!) One option is to detect if you're on Android and simply subtract 40px from the KeyboardHeight before resizing the App.mainSize.
-
-
+Fixed most gotchas, at the moment. 

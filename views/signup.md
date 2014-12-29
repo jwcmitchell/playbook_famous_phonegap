@@ -1,6 +1,7 @@
-# Signup
+# Signup and using Forms
 
-Signup uses many of the concepts introduced in the `Login` PageView, but introduces the `HeaderFooterLayout` that is used in almost every other PageView.
+We expect most users to signup using the Google+ or Facebook logins on the Landing page, but some may wish to sign up using an email address. 
+This page provides an example of using the FormHelper to create simple forms. 
 
 
 ## Route
@@ -33,11 +34,11 @@ This is a standard Famo.us component. It is basically a vertical `FlexibleLayout
 
 If you think of it as a `FlexibleLayout` it would have `ratios: [true, 1, true]`.
 
-layout.header
-///////
-layout.content
-//////
-layout.footer
+layout.header  
+///////  
+layout.content  
+//////  
+layout.footer  
 
 We also define our sizing here, though in the future you may want to provide a function for `headerSize` (or a workaround to offer a Modifier on the header's `getSize` function).
 
@@ -66,7 +67,7 @@ Add layout to RenderTree
 
 > You should read about `StandardHeader` and how to use it.
 
-We'll create a header with only a "Back" button, and the standard "her I want to go back" event options.
+We'll create a header with only a "Back" button, and the standard "I want to go back" event options.
 
     PageView.prototype.createHeader = function(){
         var that = this;
@@ -78,10 +79,10 @@ We'll create a header with only a "Back" button, and the standard "her I want to
             moreContent: false
         });
         this.header._eventOutput.on('back',function(){
-            App.history.back();//.history.go(-1);
+            App.history.back();
         });
         this.header.navBar.title.on('click',function(){
-            App.history.back();//.history.go(-1);
+            App.history.back();
         });
         this._eventOutput.on('inOutTransition', function(args){
             this.header.inOutTransition.apply(that.header, args);
@@ -92,94 +93,123 @@ Add the header to the created `HeaderFooterLayout`.
         this.layout.header.add(this.header);
     };
 
-### function `createContent()`
+### function `createContent()` (FormHelper) 
 
-Our `Signup` PageView is similar to `Login` in that it uses a vertically-centered `SequentialLayout` (instead of a `ScrollView`).
+Here we'll be introduced to the `FormHelper` that makes it simpler to handle form inputs (and the resulting effects on the keyboard and sizing). 
 
-But, there is now a `this.layout.content.StateModifier` that we'll use for transitioning in everything under our `this.layout.content`.
 
     PageView.prototype.createContent = function(){
         var that = this;
 
-        // create the scrollView of content
-        this.contentScrollView = new SequentialLayout(); //(App.Defaults.ScrollView);
-        this.contentScrollView.Views = [];
-        this.contentScrollView.sequenceFrom(this.contentScrollView.Views);
 
-Adding the input fields and submit button Surfaces.
+We create our form using the FormHelper we require'd at the top of the file. This how we create our wrapper/FormContainer for the form's input surfaces. 
 
+        this.form = new FormHelper({
+            type: 'form',
+            scroll: true
+        });
+
+We add our services from a seperate function
+
+        // Add surfaces to content (buttons)
         this.addSurfaces();
 
-Adding our `StateModifier`, and the `RenderNode/View` we'll be using to store everything before having it `add`ed it to `this.layout.content`.
 
+There is also now a `this.layout.content.StateModifier` that we'll use for transitioning in everything under our `this.layout.content`.
+
+        // Content Modifiers
         this.layout.content.StateModifier = new StateModifier();
-        this.contentView = new View();
-        this.contentView.SizeMod = new Modifier({
-            size: //[window.innerWidth - 50, true]
-                function(){
-                    var tmpSize = that.contentScrollView.getSize(true);
-                    if(!tmpSize){
-                        return [window.innerWidth, undefined];
-                    }
-                    return [window.innerWidth - 16, tmpSize[1]];
-                }
-        });
-        this.contentView.OriginMod = new StateModifier({
-            origin: [0.5, 0.5]
-        });
-        this.contentView.add(this.contentView.OriginMod).add(this.contentView.SizeMod).add(this.contentScrollView);
-        this.layout.content.add(this.layout.content.StateModifier).add(this.contentView);
 
-    };
+        // Now add content
+        this.layout.content.add(this.layout.content.StateModifier).add(Utils.usePlane('content')).add(this.form);
+
+ews);
 
 
 #### function `addSurfaces()`
 
-Adding only three Surface:, __Email__ and __Password__ and __Signup__.
+Adding four Surfaces: __Name__, __Email__, __Password__ and __Signup__.
 
     PageView.prototype.addSurfaces = function() {
         var that = this;
 
-        // Email
-        this.inputEmailSurface = new InputSurface({
-            name: 'email',
-            placeholder: 'Email Address',
+
+We'll tear apart our first input, the user's __Name__, to explain what each part is. First, the entire function:
+
+        this.inputName = new FormHelper({
             type: 'text',
-            size: [undefined, 50],
+            form: this.form,
+
+            margins: [10,10],
+
+            name: 'name',
+            placeholder: 'Name',
             value: ''
         });
-        this.contentScrollView.Views.push(this.inputEmailSurface);
 
-        this.contentScrollView.Views.push(new Surface({
-            size: [undefined, 4]
-        }));
+        
+#### `type` 
 
-        // Password
-        this.inputPasswordSurface = new InputSurface({
+Must be one of 'text', 'textarea', 'email', 'number', etc.
+
+#### `form` 
+
+The form we created earlier, which is used so that we can scroll to the necessary input when it is focused on (typing in it). 
+
+#### `margins` 
+
+An array of margins like `[10,10,10,10]`. 
+
+##### other properties 
+
+Everything else you pass is being merged into the actual `InputSurface` or `TextAreaSurface` anyways. 
+
+
+Continuing the Signup code, we'll create our Email and Password inputs. 
+
+        this.inputEmail = new FormHelper({
+
+            margins: [10,10],
+
+            form: this.form,
+            name: 'email',
+            placeholder: 'Email Address',
+            type: 'email',
+            value: ''
+        });
+
+        this.inputPassword = new FormHelper({
+
+            margins: [10,10],
+
+            form: this.form,
             name: 'password',
             placeholder: 'Password',
             type: 'password',
-            size: [undefined, 50],
             value: ''
         });
-        this.contentScrollView.Views.push(this.inputPasswordSurface);
 
-        this.contentScrollView.Views.push(new Surface({
-            size: [undefined, 4]
-        }));
 
-        // Submit button
-        this.submitButtonSurface = new Surface({
-            size: [undefined,60],
-            classes: ['form-button-submit-default'],
-            content: 'Signup'
+The following submit button also has a `click` event, that we'll bind to our `create_account` function. 
+
+        this.submitButton = new FormHelper({
+            type: 'submit',
+            value: 'Sign Up with Email',
+            margins: [10,10],
+            click: this.create_account.bind(this)
         });
-        this.contentScrollView.Views.push(this.submitButtonSurface);
 
-Handle the Signup button being clicked.
 
-        this.submitButtonSurface.on('click', this.create_account.bind(this));
+After creating all of our views/nodes, we'll add them to our form's context using the `addInputsToForm` function that accepts an array of nodes. 
 
+The form context is important because we want the "submit" action to function and trigger when pressed on a keyboard (the Enter key on a keyboard, or an iPhone/Android popup keyboard). 
+
+        this.form.addInputsToForm([
+            this.inputName,
+            this.inputEmail,
+            this.inputPassword,
+            this.submitButton
+        ]);
     };
 
 ## Creating the account
@@ -195,140 +225,84 @@ We do a slight amount of validation on the email address and password, before su
         this.checking = true;
 
         // Get email and password
-        var email = $.trim(this.inputEmailSurface.getValue().toString());
-        if(email.length === 0){
-            this.checking = false;
+        
+        var name = this.inputName.getValue().toString();
+        if(!name.length){
+            Utils.Notification.Toast('Please include your Name!');
             return;
         }
 
-        var password = this.inputPasswordSurface.getValue().toString();
+        // Get email and password
+        var email = $.trim(this.inputEmail.getValue().toString());
+        if(email.length === 0){
+            this.checking = false;
+            Utils.Notification.Toast('Email Missing');
+            return;
+        }
+        // todo: validate email
+
+        var password = this.inputPassword.getValue().toString();
 
         // Disable submit button
         this.submitButtonSurface.setContent('Please wait...');
 
 
-Gather our data, and submit to the `signup` endpoint on our server.
+Gather our data, and submit to the `signup` endpoint on our server, via the User model's signup button.
 
         var dataBody = {
             email: email,
-            password: password
+            password: password,
+            profile_name: name,
+            platform: App.Config.devicePlatform
         };
+        
 
-        // Fetch user
-        $.ajax({
-            url: Credentials.server_root + 'signup',
-            method: 'POST',
-            data: dataBody,
 
-If signup fails in transit (500 error, timeout, etc.) handle it here.
+        // Try signup
+        // - and then login
+        that.model.signup(dataBody)
+        .then(function(result){
+            
+            that.submitButton.setContent('Logging In');
 
-            error: function(err){
-
-                Utils.Notification.Toast('Failed creating Nemesis account');
-                that.submitButtonSurface.setContent('Signup');
-                that.checking = false;
-
-            },
-
-On `success` we try to login using the same email/password.
-
-            success: function(response){
+            // Login
+            // - same as Login.js
+            that.model.login(dataBody)
+            .fail(function(){
 
                 that.checking = false;
+                that.submitButton.setContent('Sign Up with Email');
 
-                if(response.complete == true){
-                    // Awesome, created the new user on the server
+                // invalid login
+                console.error('Fail, invalid login');
+
+                // Toast
+                Utils.Notification.Toast('Failed login after signup');
+
+                // Go to login
+                App.history.navigate('login');
+
+            })
+            .then(function(response){
+                // Success logging in
+
+                that.checking = false;
+                that.submitButton.setContent('Sign Up with Email');
+
+                // Go to signup/home (will get redirected)
+                App.history.eraseUntilTag('all-of-em');
+                App.history.navigate(App.Credentials.home_route);
+
+            });
 
 
-If the login fails (should happen rarely/never) we redirect to the login page.
+        })
+        .fail(function(){
 
-If successful, we do everything from the success part of the `Login` PageView, but the redirect to `welcome` instead.
-
-                    that.model.login(dataBody)
-                    .fail(function(){
-                        Utils.Notification.Toast('Failed login after signup');
-                        App.history.navigate('login');
-
-                    })
-                    .then(function(response){
-                        // Success logging in
-
-                        // Fetch model
-                        if(response.code != 200){
-                            console.error('Failed signing in (3424)');
-                            console.log(response);
-                            console.log(response.code);
-                            Utils.Notification.Toast('Failed signing in (3424)');
-                            that.submitButtonSurface.setContent('Signup');
-                            return;
-                        }
-
-                        // Store access_token in localStorage
-                        localStorage.setItem('usertoken_v1_',response.token);
-                        App.Data.UserToken = response.token;
-
-                        // Get's the User's Model
-                        that.model.fetch({
-                            error: function(){
-                                alert("Failed gathering user model");
-                            },
-                            success: function(userModel){
-
-                                // Set global logged in user
-                                that.options.App.Data.User = userModel;
-
-                                localStorage.setItem('user_v3_',JSON.stringify(userModel.toJSON()));
-
-                                // Preload Models
-                                require(['models/_preload'], function(PreloadModels){
-                                    PreloadModels(that.options.App);
-                                });
-
-                                // Register for Push Notifications
-                                App.DeviceReady.initPush();
-
-Here is where we go to the `welcome` route (after clearing history).
-                                App.history.eraseUntilTag('allofem');
-                                App.history.navigate('welcome');
-
-                            }
-                        });
-
-                    });
-
-                    return;
-
-                }
-
-Here is where our error messages for the responses from server. You could also return a `msg` paramter with your responses and use that instead.
-
-Remember that we only get this far if the signup was unsuccessful.
-
-                // See what the error was
-                switch(response.msg){
-                    case 'bademail':
-                        alert('Sorry, that does not look like an email address to us.');
-                        break;
-                    case 'duplicate':
-                        alert('Sorry, that email is already in use.');
-                        break;
-                    case 'unknown':
-                    default:
-                        alert('Sorry, we could not sign you up at the moment, please try again!');
-                        break;
-
-                }
-
-                // Re-enable submit button
-                that.submitButtonSurface.setContent('Signup');
-
-                return false;
-
-            }
-
+            Utils.Notification.Toast('Failed creating account');
+            that.submitButton.setContent('Sign Up with Email');
+            that.checking = false;
         });
-
-    };
 
 ### Transitions
 

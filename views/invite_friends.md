@@ -1,283 +1,83 @@
-# Invite Friends
+# Connections / Sharing 
 
-Spreading your app, whether among friends, coworkers, or random consumers, can be encouraged through the use of a multitude of methods.
 
-- Find friends on the network (through address book)
-- Send SMS with Link
-- Post to Social Network
+### Todos 
 
-In this example you'll see how to invite somebody to use your app, by either posting on a social network, or sending an SMS.
+- Pending/Invited, Blocked lists of people (need Tabs enabled) 
+- List searching/sorting (searching friends easier) 
 
 
+Most social apps need need a way of facilitating sharing and creating connections between users. The sample app provides a simple mechanism that you can expand upon, but goes a long way towards closing the viral loop for a basic app. 
 
-## Route
+### Model 
 
-        'invite' : function(){
-            defaultRoute('Invite', 'Misc/Invite', arguments, {cache: false});
-        },
+On the server we use a `Friend` model (`user_friends` table) that creates an entry for each side of the relationship. 
 
+Schema: 
 
-## Initialization
+    user_id:      my_user_id,
+    friend_id:    other_persons_user_id
+    type:         "friend",
+    active:       true
 
-Back to `www/views/Misc/Invite.js`, we initialize the PageView by applying all of a Famo.us `View`'s properties.
+This could easily be extended to fit a "follower" model, or one that requires approval (pending invites, blocked people, etc.). 
 
-    function PageView(options) {
-        var that = this;
-        View.apply(this, arguments);
-        this.options = options;
 
-We've already `var UserModel = require('models/user');`'d our model, now we create an empty User to hold our credentials to login with later.
+#### _Auto-accept connections _
 
-        // Model
-        this.model = new UserModel.User();
+In our example app (and supported on the server) we have taken an __auto-accept all friends__ approach. By sending an Invite Email to a friend through our server, the relationship is automatically created. If the Invited user is not already registered, the relationship will be created when they sign up. Logins with __Facebook__ will be auto-connected with friends as they sign up. 
 
-Add your background surface. Remember, order counts (but so does Transform position), so we use both this "put it on the RenderTree first" and add a Modifier to move it backwards in Z space.
 
-        // Add background
-        var bgSurface = new Surface({
-            size: [undefined, undefined],
-            classes: ['bg-surface']
-        });
-        var backMod = new StateModifier({
-            transform: Transform.behind
-        });
-        this.add(backMod).add(bgSurface);
 
-We'll use a simple SequentialLayout (link to Famo.us University, or links to our included resources?) here, as we only have a few fields and don't anticipate a need to scroll.
+### View  
 
-        // Create the layout
-        this.layout = new SequentialLayout();
+View file is located at: 
 
-You'll notice this pattern used frequently:
+    /views/Friend/List.js 
+    
+We also include the Subview `/views/Friend/Subviews/Connected.js` (eventually will include `Pending.js`, `Blocked.js`, etc.). 
+    
 
-        this.layout.Views = [];
+#### Inviting 
 
-> Notice that the SequentialLayout is going to sequenceFrom "itself" i.e. `this.layout.views` later
+The `createHeader` function contains our "Invite Somebody via Email" icon/button. In it we create a simple `Prompt` popover that wants an email address and tries inviting the user via our server at the `/invite/user/email` endpoint. 
 
 
-Now we add our surfaces, in order.
+    this.headerContent.Share.on('click', function(){
 
-Each Surface is `.push`ed onto the `this.layout.Views` array.
+        var text = 'Enter a friend\'s email to send them your Wishlist. If they sign up, you\'ll be connected',
+            defaultValue = that.lastEmail || '',
+            button = 'Send Invite',
+            buttonCancel = 'Cancel',
+            type = 'email',
+            placeholder = 'Email Address';
 
-        this.topWelcomeSurface = new Surface({
-            content: "Nemesis",
-            size: [undefined, 80],
-            classes: ['login-page-welcome-top-default']
-        });
-        this.layout.Views.push(this.topWelcomeSurface);
-
-        this.inputEmailSurface = new InputSurface({
-            name: 'email',
-            placeholder: 'Email Address',
-            type: 'text',
-            size: [undefined, 50],
-            value: '' //nicholas.a.reed@gmail.com
-        });
-        this.layout.Views.push(this.inputEmailSurface);
-
-This is one way of adding spacers: simply add a blank Surface with whatever size you need. If this were a ScrollView though, you'd also need to `.pipe` the Surface in order to avoid any weird un-scrollable patches on the screen.
-
-        this.spacer1 = new Surface({
-            content: "",
-            size: [undefined,4]
-        });
-        this.layout.Views.push(this.spacer1);
-
-
-Here you'll see another method of adding a spacer after the `inputPasswordSurface`. In this instance, we add a `StateModifier` with a slightly larger `size` that the contained Surface.
-
-        this.inputPasswordView = new View();
-        this.inputPasswordView.Surface = new InputSurface({
-            name: 'password',
-            placeholder: 'Password',
-            type: 'password',
-            size: [undefined, 50],
-            value: '' //testtest
-        });
-        this.inputPasswordView.PaddingMod = new StateModifier({
-            size: [undefined, 54]
-        });
-        this.inputPasswordView.add(this.inputPasswordView.PaddingMod).add(this.inputPasswordView.Surface);
-        this.layout.Views.push(this.inputPasswordView);
-
-
-Our Login button will trigger the `login` function.
-
-        this.submitSurface = new Surface({
-            size: [undefined,60],
-            classes: ['form-button-submit-default'],
-            content: 'Login'
-        });
-        this.submitSurface.on('click', this.login.bind(this));
-        this.layout.Views.push(this.submitSurface);
-
-
-        this.spacerSurface = new Surface({
-            content: "",
-            size: [undefined, 20]
-        });
-        this.layout.Views.push(this.spacerSurface);
-
-
-Our Signup and Forgot Password links are styled differently.
-
-        this.signupLinkSurface = new Surface({
-            content: 'Signup &gt;',
-            size: [undefined,40],
-            classes: [],
-            properties: {
-                color: "black",
-                lineHeight: "40px",
-                textAlign: "right"
-            }
-        });
-        this.signupLinkSurface.on('click', function(){
-            App.history.navigate('signup', {trigger: true});
-        });
-        this.layout.Views.push(this.signupLinkSurface);
-
-
-        this.forgotLinkSurface = new Surface({
-            content: 'Forgot Password &gt;',
-            size: [undefined,40],
-            classes: [],
-            properties: {
-                color: "black",
-                lineHeight: "40px",
-                textAlign: "right"
-            }
-        });
-        this.forgotLinkSurface.on('click', function(){
-            App.history.navigate('forgot', {trigger: true});
-        });
-        this.layout.Views.push(this.forgotLinkSurface);
-
-
-Now that all our Surfaces (and one View!) are created and added to the array, we'll `sequenceFrom`.
-
-        this.layout.sequenceFrom(this.layout.Views);
-
-Finally, we created an `originMod` and `sizeMod` to get everything centered and sized correctly. The last step is adding to `this` PageView.
-
-
-        var originMod = new StateModifier({
-            origin: [0.5, 0.5]
-        });
-        var sizeMod = new StateModifier({
-            size: [window.innerWidth - 16, undefined]
-        });
-
-        this.add(sizeMod).add(originMod).add(this.layout);
-
-    }
-
-
-
-## Login function
-
-When the Login button is pressed, we need to:
-- gather the inputs
-- validate them slightly (no sense making a user wait for a "hey, you didn't enter a password" response from the server)
-- check against the server
-- store the token if the login succeeded
-- redirect to their homepage
-
-
-    PageView.prototype.login = function(){
-        var that = this;
-
-        if(this.checking === true){
-            return;
-        }
-        this.checking = true;
-
-        var email = this.inputEmailSurface.getValue(),
-            password = this.inputPasswordSurface.getValue();
-
-After clicking, we'll disable the input for a moment, and inform the user.
-
-        this.submitSurface.setContent('Please wait...');
-
-Set the data for the login request.
-
-        var body = {
-            email: email,
-            password: password
-        }
-
-Make the request using the `login` method on our `User` model.
-
-        this.model.login(body)
-
-If the login fails, inform the user and reset the submit button text.
-
-        .fail(function(){
-            alert('Failed logging in');
-            that.submitSurface.setContent('Login');
-            that.checking = false;
-
-        })
-
-> We check for a failure condition with the response from the server too
-
-        .then(function(response){
-            if(response.code != 200){
-                alert('Failed signing in (3424)');
-                that.submitSurface.setContent('Login');
-                that.checking = false;
+        Utils.Popover.Prompt(text, defaultValue, button, buttonCancel, type, placeholder)
+        .then(function(email){
+            if(!email){
                 return;
             }
 
-When the login succeeds, we save the `token` and preload all the models for the new User.
-
-
-            localStorage.setItem('usertoken_v1_',response.token);
-            App.Data.UserToken = response.token;
-
-            that.model.fetch({
-                error: function(){
-                    alert("Failed gathering user model");
-                },
-                success: function(userModel){
-                    console.log('UserModel');
-                    console.log(userModel);
-
-You can access the User model anytime at `App.Data.User`.
-
-                    that.options.App.Data.User = userModel;
-
-                    localStorage.setItem('user_v3_',JSON.stringify(userModel.toJSON()));
-
-
-    Preload the user's models (friends, Posts, etc.)
-
-                    require(['models/_preload'], function(PreloadModels){
-                        PreloadModels(that.options.App);
-                    });
-
-We need to register for Push Notifications too.
-
-                    // Register for Push Notifications
-                    App.DeviceReady.initPush();
-
-Finally, use `eraseUntilTag` to erase the whole history (because no tags called `allofem` are created, of course) and then navigate to our homepage.
-
-                    // Reload home
-                    App.history.eraseUntilTag('allofem');
-                    App.history.navigate('dash');
-
-                }
-            });
-
+            App.Data.User.inviteViaEmail(email)
+            .then(function(){
+                Utils.Notification.Toast('Email Invite Sent');
+            })
         });
 
-    };
+    });
 
 
+#### List of Friends 
 
-## Transitions
+We only have one list of friends to display, but we want to extend to multiple lists eventually, so we lay the foundation by building (but now showing in this version) a `FlexibleLayout` that holds some Tabs and a `RenderController` (for our content). Notice in the `ratios` we have `[1]` and not `[true,1]` because we are excluding the Tabs! 
 
-Left out of our Login PageView is an inOutTransition function. Instead, we use a simple StoredTransition and ViewToView for displaying the Login page.
+List location (Subview): 
+
+    /views/Friend/Subviews/Connected.js 
+    
+
+This is our standard multi-item list that works with a collection to display all our friends. When clicked, we'll visit a friend's profile. 
+
 
 
 
