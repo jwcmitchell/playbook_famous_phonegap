@@ -8,10 +8,10 @@ Instead of worrying about keeping the "latest" model representations on the clie
 server-side:
 - when something happens on the server that affects a user, that user is notified via `m.User.remoteRefresh`
 - that function simply updates the `last-modified` (actually, `updated`) value for that user's ID on a Firebase
-- the client is listening on that single value (via `child_added`) and emits a `firebase.child_added` event on `App.Events`.
 
 client-side:
-- `history.js` picks up the `firebase.child_added` event and runs the displayed `PageView.remoteRefresh`
+- the client is listening on that single value (via `child_added`) and emits a `firebase.child_added` event on `App.Events`.
+- `history.js` is listening listening for that event and its function runs the displayed `PageView.remoteRefresh`
 
 Sample `PageView.prototype.remoteRefresh`:
 

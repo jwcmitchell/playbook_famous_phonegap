@@ -1,282 +1,235 @@
-# Landing Page
+# Landing Page and Logins (using OAuth)  
 
-Our default landing page is pretty simple: we want to give the user quick options for signing up or logging in from various services (Google+, Facebook, or Email). 
+Our default landing page is pretty simple: we want to give the user quick options for signing up, or logging in from various services. We currently support: 
+
+- Google+ 
+- Facebook 
+- Email 
+
+Both Google+ and Facebook use native libraries to sign the user in. When requesting an access_token for the service we also request the equivalent of an `email` scope. We then validate the access_token on our server at the `/user/{gplus|facebook}` endpoint. 
 
 
 ## Route
 
 Helps to know what we're being initialized with!
 
-> Notice that we are not caching the Landing View
-
 `www/router.js`
 
     'landing' : function(){
-        defaultRoute('Landing', 'Misc/Landing', arguments, {cache: false});
+        defaultRoute('Landing', 'Misc/Landing', arguments);
     },
 
 
 ## Initialization
 
-Back to `www/views/Misc/Login.js`, we initialize the PageView by applying all of a Famo.us `View`'s properties.
+Back to `www/views/Misc/Landing.js`, we initialize the PageView by applying all of a Famo.us `View`'s properties.
 
+    
     function PageView(options) {
         var that = this;
-        View.apply(this, arguments);
+        StandardPageView.apply(this, arguments);
         this.options = options;
 
-We've already required (`var UserModel = require('models/user');`) our model, now we create an empty User to hold our credentials to login with later.
 
-        // Model
-        this.model = new UserModel.User();
+In here we set up a default user model 
 
-Add your background surface. Remember, order counts (but so does Transform position), so we use both this "put it on the RenderTree first" and add a Modifier to move it backwards in Z space.
+        this.loadModels();
 
-        // Add background
-        var bgSurface = new Surface({
+Next up is the sizing of our `HeaderFooterLayout`, where we have no header, and our footer size depends on how many buttons we have in it (in our case, 3 rows of buttons, where 200 is about right).
+
+        this.layout = new HeaderFooterLayout({
+            headerSize: 0
+            footerSize: 200
+        });
+
+Our background surface will be styled in CSS 
+
+        this.layout.Bg = new Surface({
+            content: '',
             size: [undefined, undefined],
-            classes: ['bg-surface']
-        });
-        var backMod = new StateModifier({
-            transform: Transform.behind
-        });
-        this.add(backMod).add(bgSurface);
-
-We'll use a simple SequentialLayout (link to Famo.us University, or links to our included resources?) here, as we only have a few fields and don't anticipate a need to scroll.
-
-        // Create the layout
-        this.layout = new SequentialLayout();
-
-You'll notice this pattern used frequently:
-
-        this.layout.Views = [];
-
-> Notice that the SequentialLayout is going to sequenceFrom "itself" i.e. `this.layout.views` later
-
-
-Now we add our surfaces, in order.
-
-Each Surface is `.push`ed onto the `this.layout.Views` array.
-
-        this.topWelcomeSurface = new Surface({
-            content: "Nemesis",
-            size: [undefined, 80],
-            classes: ['login-page-welcome-top-default']
-        });
-        this.layout.Views.push(this.topWelcomeSurface);
-
-        this.inputEmailSurface = new InputSurface({
-            name: 'email',
-            placeholder: 'Email Address',
-            type: 'text',
-            size: [undefined, 50],
-            value: '' //nicholas.a.reed@gmail.com
-        });
-        this.layout.Views.push(this.inputEmailSurface);
-
-This is one way of adding spacers: simply add a blank Surface with whatever size you need. If this were a ScrollView though, you'd also need to `.pipe` the Surface in order to avoid any weird un-scrollable patches on the screen.
-
-        this.spacer1 = new Surface({
-            content: "",
-            size: [undefined,4]
-        });
-        this.layout.Views.push(this.spacer1);
-
-
-Here you'll see another method of adding a spacer after the `inputPasswordSurface`. In this instance, we add a `StateModifier` with a slightly larger `size` than the contained Surface.
-
-        this.inputPasswordView = new View();
-        this.inputPasswordView.Surface = new InputSurface({
-            name: 'password',
-            placeholder: 'Password',
-            type: 'password',
-            size: [undefined, 50],
-            value: '' //testtest
-        });
-        this.inputPasswordView.PaddingMod = new StateModifier({
-            size: [undefined, 54]
-        });
-        this.inputPasswordView.add(this.inputPasswordView.PaddingMod).add(this.inputPasswordView.Surface);
-        this.layout.Views.push(this.inputPasswordView);
-
-
-Our Login button will trigger the `login` function.
-
-        this.submitSurface = new Surface({
-            size: [undefined,60],
-            classes: ['form-button-submit-default'],
-            content: 'Login'
-        });
-        this.submitSurface.on('click', this.login.bind(this));
-        this.layout.Views.push(this.submitSurface);
-
-
-        this.spacerSurface = new Surface({
-            content: "",
-            size: [undefined, 20]
-        });
-        this.layout.Views.push(this.spacerSurface);
-
-
-Our Signup and Forgot Password links are styled differently.
-
-        this.signupLinkSurface = new Surface({
-            content: 'Signup &gt;',
-            size: [undefined,40],
-            classes: [],
-            properties: {
-                color: "black",
-                lineHeight: "40px",
-                textAlign: "right"
-            }
-        });
-        this.signupLinkSurface.on('click', function(){
-            App.history.navigate('signup', {trigger: true});
-        });
-        this.layout.Views.push(this.signupLinkSurface);
-
-
-        this.forgotLinkSurface = new Surface({
-            content: 'Forgot Password &gt;',
-            size: [undefined,40],
-            classes: [],
-            properties: {
-                color: "black",
-                lineHeight: "40px",
-                textAlign: "right"
-            }
-        });
-        this.forgotLinkSurface.on('click', function(){
-            App.history.navigate('forgot', {trigger: true});
-        });
-        this.layout.Views.push(this.forgotLinkSurface);
-
-
-Now that all our Surfaces (and one View!) are created and added to the array, we'll `sequenceFrom`.
-
-        this.layout.sequenceFrom(this.layout.Views);
-
-Finally, we created an `originMod` and `sizeMod` to get everything centered and sized correctly. The last step is adding to `this` PageView.
-
-
-        var originMod = new StateModifier({
-            origin: [0.5, 0.5]
-        });
-        var sizeMod = new StateModifier({
-            size: [window.innerWidth - 16, undefined]
+            classes: ['landing-page-bg-default']
         });
 
-        this.add(sizeMod).add(originMod).add(this.layout);
+Now we create our content, and our footer
+
+        this.createContent();
+        this.createFooter();
+        
+Finally we assign each of our created views to the correct plane (see __Views: Planes / Layers __) 
+
+        // Assign to correct plane
+        this.add(Utils.usePlane('content',-1)).add(this.layout.Bg);
+        this.add(Utils.usePlane('content',1)).add(this.layout);
 
     }
 
 
+#### createFooter 
 
-## Login function
+This is an example of creating a more complex layout using `LayoutBuilder` that also provides animations for the buttons as the page transitions in/out (show/hide). 
 
-When the Login button is pressed, we need to:
-- gather the inputs
-- validate them slightly (no sense making a user wait for a "hey, you didn't enter a password" response from the server)
-- check against the server
-- store the token if the login succeeded
-- redirect to their homepage
-
-
-    PageView.prototype.login = function(){
+    PageView.prototype.createFooter = function(){
         var that = this;
 
-        if(this.checking === true){
-            return;
-        }
-        this.checking = true;
 
-        var email = this.inputEmailSurface.getValue(),
-            password = this.inputPasswordSurface.getValue();
+We create a `surfaceAnimation` function that accepts a surface and the x,y coordinates to move the surface when the page hides. 
 
-After clicking, we'll disable the input for a moment, and inform the user.
+We've also used a Timeout of 1 in order to wait for the scroller to be initialized before we pipe our surface to it. 
 
-        this.submitSurface.setContent('Please wait...');
+        var surfaceAnimation = function(surface, x, y){
 
-Set the data for the login request.
-
-        var body = {
-            email: email,
-            password: password
-        }
-
-Make the request using the `login` method on our `User` model.
-
-        this.model.login(body)
-
-If the login fails, inform the user and reset the submit button text.
-
-        .fail(function(){
-            alert('Failed logging in');
-            that.submitSurface.setContent('Login');
-            that.checking = false;
-
-        })
-
-> We check for a failure condition with the response from the server too
-
-        .then(function(response){
-            if(response.code != 200){
-                alert('Failed signing in (3424)');
-                that.submitSurface.setContent('Login');
-                that.checking = false;
-                return;
-            }
-
-When the login succeeds, we save the `token` and preload all the models for the new User.
-
-
-            localStorage.setItem('usertoken_v1_',response.token);
-            App.Data.UserToken = response.token;
-
-            that.model.fetch({
-                error: function(){
-                    alert("Failed gathering user model");
-                },
-                success: function(userModel){
-                    console.log('UserModel');
-                    console.log(userModel);
-
-You can access the User model anytime at `App.Data.User`.
-
-                    that.options.App.Data.User = userModel;
-
-                    localStorage.setItem('user_v3_',JSON.stringify(userModel.toJSON()));
-
-
-    Preload the user's models (friends, Posts, etc.)
-
-                    require(['models/_preload'], function(PreloadModels){
-                        PreloadModels(that.options.App);
+            Timer.setTimeout(function(){
+                surface.pipe(that.footer.scroller);
+            },1);
+            that._eventOutput.on('inOutTransition', function(args){
+                if(args[0] == 'showing'){
+                    surface.mods.Animate.setTransform(Transform.translate(x,y,0));
+                    surface.mods.Animate.setTransform(Transform.translate(0,0,0), {
+                        duration: 450,
+                        curve: Easing.easeIn
                     });
 
-We need to register for Push Notifications too.
+                    surface.mods.Animate.setOpacity(0);
+                    surface.mods.Animate.setOpacity(1,{
+                        duration: 960,
+                        curve: Easing.easeOutBounce
+                    });
 
-                    // Register for Push Notifications
-                    App.DeviceReady.initPush();
+                } else {
+                    surface.mods.Animate.setTransform(Transform.translate(0,0,0));
+                    surface.mods.Animate.setTransform(Transform.translate(x,y,0), {
+                        duration: 350,
+                        curve: Easing.easeOut
+                    });
 
-Finally, use `eraseUntilTag` to erase the whole history (because no tags called `allofem` are created, of course) and then navigate to our homepage.
-
-                    // Reload home
-                    App.history.eraseUntilTag('allofem');
-                    App.history.navigate('dash');
-
+                    surface.mods.Animate.setOpacity(1);
+                    surface.mods.Animate.setOpacity(0,{
+                        duration: 350,
+                        curve: Easing.easeIn
+                    });
                 }
             });
+        };
 
+Now we create our footer using `LayoutBuilder`: 
+
+        this.footer = new LayoutBuilder({
+            scroller: {
+                direction: 1,
+                sequenceFrom: [{
+                    surface: {
+                        key: 'GoogleLogin',
+                        mods: [{
+                            key: 'Animate'
+                        }],
+                        surface: new Surface({
+                            content: '<div><span><i class="icon ion-social-googleplus"></i></span>Google+</div>',
+                            size: [Utils.WindowWidth(), 60],
+                            classes: ['landing-button','gplus-button']
+                        }),
+                        click: function(){
+                            // Pass off Google+ login/signup to the user's model
+                            // Utils.Notification.Toast('Attempting signin');
+                            var userModel = new UserModel.User();
+                            userModel.gplus_login();
+                        },
+                        events: function(surface){
+                            surfaceAnimation(surface, 0, 100);
+                        }
+                    }
+                },{
+                    surface: {
+                        key: 'FacebookLogin',
+                        mods: [{
+                            key: 'Animate'
+                        }],
+                        surface: new Surface({
+                            content: '<div><span><i class="icon ion-social-facebook"></i></span>Facebook</div>',
+                            size: [Utils.WindowWidth(), 60],
+                            classes: ['landing-button','facebook-button']
+                        }),
+                        click: function(){
+                            // Pass off Facebook login/signup to the user's model
+                            var userModel = new UserModel.User();
+                            userModel.fb_login();
+                        },
+                        events: function(surface){
+                            surfaceAnimation(surface, 0, 100);
+                        }
+
+                    }
+                },
+                {
+                    size: [undefined, 60],
+                    flexible: {
+                        direction: 0,
+                        ratios: [1,1],
+                        sequenceFrom: [{
+                            surface: {
+                                key: 'EmailSignup',
+                                mods: [{
+                                    key: 'Animate'
+                                }],
+                                surface: new Surface({
+                                    content: '<div>Sign Up</div>',
+                                    size: [undefined, true],
+                                    classes: ['landing-button','signup-button']
+                                }),
+                                click: function(){
+                                    App.history.navigate('signup');
+                                },
+                                events: function(surface){
+                                    surfaceAnimation(surface, -100, 0);
+                                }
+
+                            }
+                        },{
+                            surface: {
+                                key: 'Login',
+                                mods: [{
+                                    key: 'Animate'
+                                }],
+                                surface: new Surface({
+                                    content: '<div>Log In</div>',
+                                    size: [undefined, true],
+                                    classes: ['landing-button','login-button'] // landing-login-button
+                                }),
+                                click: function(){
+                                    App.history.navigate('login');
+                                },
+                                events: function(surface){
+                                    surfaceAnimation(surface, 100, 0);
+                                }
+
+                            }
+                        }]
+                    }
+                }]
+            }
         });
 
+After it is created, we attach it to the `HeaderFooterLayout`  
+
+        this.layout.footer.add(this.footer);
     };
 
 
+### Email Signup 
 
-## Transitions
+The most basic of signup forms is described in the next section: __Email Signup (Forms)__. 
 
-Left out of our Login PageView is an inOutTransition function. Instead, we use a simple StoredTransition and ViewToView for displaying the Login page.
+
+### OAuth login (Google+ and Facebook)  
+
+Both Google+ and Facebook follow the same authentication flow:
+
+1. Initiate native apps, usually pops up a dialog box which allows the user to sign in
+2. Receive g+/fb access_token for user
+3. Send access_token to our server
+4. Server validates token and gets email address
+5. Server either signs up the new user, or logs them in, and returns a new access_token to the client
+6. Client initiates `UserModel.login` 
+
 
 
 

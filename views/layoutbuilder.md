@@ -127,7 +127,7 @@ Generally used to pipe to an external ScrollView, see the "scroller" example bel
 
 #### `events`
 
-A function that is passed the created Surface (the actual Surface). Run whatever arbitrary stuff you want here, it is executed inside a `Timer.setTimeout(___, 1)` and is passed the created element. 
+A function that is passed the created Surface (the actual Surface). Run whatever arbitrary stuff you want here. 
 
 
 
@@ -148,7 +148,9 @@ Here we're creating a vertical ScrollView that has three items in it.
                         size: [undefined, 100]
                     }),
                     events: function(surface){
-                        surface.pipe(myScroller);
+                        Timer.setTimeout(function(){
+                            surface.pipe(myScroller);
+                        },1);
                     }
                 }
             },{
@@ -159,7 +161,9 @@ Here we're creating a vertical ScrollView that has three items in it.
                         size: [undefined, 100]
                     }),
                     events: function(surface){
-                        surface.pipe(myScroller);
+                        Timer.setTimeout(function(){
+                            surface.pipe(myScroller);
+                        },1);
                     }
                 }
             },(function(){
@@ -172,7 +176,9 @@ Here we're creating a vertical ScrollView that has three items in it.
                             size: [undefined, 100]
                         }),
                         events: function(surface){
-                            surface.pipe(myScroller);
+                            Timer.setTimeout(function(){
+                                surface.pipe(myScroller);
+                            },1);
                         }
                     }
                 };

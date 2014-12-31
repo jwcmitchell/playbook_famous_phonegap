@@ -1,6 +1,7 @@
 # Model
 
 
+
 An except from `models/action.js`:
 
     var Action = Backbone.DeepModel.extend({
@@ -10,7 +11,6 @@ An except from `models/action.js`:
         urlRoot: Credentials.server_root + "action/",
 
         initialize: function () {
-            // ok
             this.url = this.urlRoot + '';
             if(this.id){
                 this.url = this.urlRoot + '/' + this.id;
@@ -37,24 +37,26 @@ instead of repetitive code like:
 
 #### Backbone.UniqueModel
 
-Gives us an App-wide version of *the same* model everytime we instantiate.
+Gives us an App-wide version of *the same* model everytime we instantiate one based on `_id`.
+
+> But, __EVENTS__ are not synced! (at least, 'change' is not) (todo: fix) 
 
     var ActionModel = require('models/action');
     var a = ActionModel.Action({
-        _id: "xyz" // ObjectId
+        _id: "5491dac1391f470000886e48" // ObjectId
     });
     a.on('question', function({
-        console.log('answer');
+        console.log("answer for a");
     });
     var b = ActionModel.Action({
-        _id: "xyz", // ObjectId
+        _id: "5491dac1391f470000886e48", // ObjectId
     });
 
-    a === b
-    > true
+    > a === b
+    true
 
-    b.trigger('question');
-    > "answer"
+    > b.trigger('question');
+    "answer for a"
 
 
 
