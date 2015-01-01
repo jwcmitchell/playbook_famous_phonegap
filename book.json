@@ -1,10 +1,14 @@
 {
     "plugins": [
-        "ga"
+        "ga",
+        "gitbook-plugin-olark"
     ],
     "pluginsConfig": {
         "ga": {
             "token": "UA-53818661-1"
+        },
+        "gitbook-plugin-olark": {
+            "site_id": "6595-634-10-4099"
         }
     }
 }
