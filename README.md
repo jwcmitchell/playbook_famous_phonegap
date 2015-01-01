@@ -10,6 +10,8 @@ Through my experience building Cordova/PhoneGap apps, I've encountered many unkn
 
 ## "Waiting": a sample app 
 
+> __ The App is being updated, in a state of heavy change until Jan 5, 2015! (Then an email will be sent to the mailing list)  __
+
 Included, and referenced throughout, is a sample app called __Waiting__. Coupled with the included server (Chapter 10), it works as a complete showcase of many of the concepts referenced, and can easily serve as the foundation for your next project. 
 
 __Waiting__ includes some useful features ande examples like:
