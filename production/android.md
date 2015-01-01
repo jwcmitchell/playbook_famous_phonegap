@@ -1,9 +1,4 @@
-# Android (stub) 
-
-
-##### Topic todos: 
-- production certs for Push Notifications
-- resources to create (icons, splash screens, etc.)
+# Android 
 
 
 ### Google Developer Console 
@@ -30,7 +25,7 @@ Notes:
 
 ### Exporting SHA1 of .keystore  
 
-If you're using the Google+ plugin for signin, then you'll need to export the SHA1 hash of your keystore plugin. 
+If you're using the Google+ plugin for sign-in, then you'll need to export the SHA1 hash of your keystore plugin. 
 
     keytool -exportcert -alias androidproduction -keystore androidproduction.keystore -list -v
 
@@ -43,4 +38,7 @@ Instructions from http://developer.android.com/google/gcm/gs.html
 
 
 
+## Resources (icons, spalsh screens, logos, etc.)
+
+Visit __Chapter 6.3: Building the Waiting App: Media__ for details on creating icons, splash screens, etc.  
 

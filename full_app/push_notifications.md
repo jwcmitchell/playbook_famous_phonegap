@@ -1,42 +1,12 @@
 # Push Notifications
 
-Push Notifications have a server and client-side component.
-
-
-### Certificates and Setup
-
-#### iOS
-
-Apple uses the Apple Push Notifiation service (APN). This is an excellent tutorial on obtaining keys:
-http://www.raywenderlich.com/32960/apple-push-notification-services-in-ios-6-tutorial-part-1
-
-#### Android
-
-Use Google Cloud Messaging to obtain the necessary keys.
-http://developer.android.com/google/gcm/gs.html
-
-See also __Chapter 11.1 - Production -> Android__ for more Release/Production setup instructions. 
-
-
-### Server Side
-
-We use a PushSetting model per-user to keep track of what they'd like to be notified on.
-
-We use a common format for sending a Push Notification to a user. This checks a user's PushSetting and PushSettingMod to determine if a Push Notifiation should be sent, and then sends the corresponding iOS or Android notification.
-
-	m.PushNotification.pushToUser(user_id, {
-		ios_title: 'iOS Push Message',
-		title: 'Title of Push Notification',
-		message: 'body of message, Android only',
-		payload: {type: 'new_message', id: newMessage._id}
-	}, 'pushsetting_mod_key', pushsetting_mod_conditions);
-
-__iOS__ has only one field (`ios_title`) while __Android__ accepts both `title` and `message`.
+Push Notifications also have a server-side component that is detailed in __Chapter 10.2__. 
 
 
 ### Client Side
 
-Couple of steps:
+Couple of steps that the app takes to prepare for push notifications and handle them when they arrive: 
+
 - register device for Push Notifications
 - upload token to server
 - handle incoming messages and payloads

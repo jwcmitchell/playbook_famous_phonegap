@@ -56,6 +56,8 @@
    * [More Views](views/more_views.md)
 * [Debugging](debugging/README.md)
 * [Server (node.js)](debugging/server_nodejs.md)
+   * [Auth: Login and Signup](debugging/auth_login_and_signup.md)
+   * [Sending a Push Notification](debugging/sending_a_push_notification.md)
 * [Production](production/README.md)
    * [Android](production/android.md)
    * [iOS](production/ios.md)

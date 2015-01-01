@@ -1,20 +1,20 @@
 # Welcome!
 
-> Available at http://www.famousmobileapps.com/
+> Homepage at http://www.famousmobileapps.com/
 
-My name is Nicholas Reed. I'm a web developer and this is the "Playbook" that I use while prototyping apps (for Android and iOS) and accompanying websites. 
+My name is Nicholas Reed. I'm a web developer and this is the "Playbook" that I use while prototyping apps (Android, iOS and mobile web). 
 
-Both the mobile apps and websites are built primarily using Javascript. The mobile apps are built using the Famo.us framework, and wrapped in Cordova/Phonegap. _Windows is currently unsupported._
+The mobile apps are built primarily using Javascript, with a heavy emphasis on the use of the Famo.us framework for rendering views. Android and iOS apps are wrapped in Cordova/Phonegap so they have access to "native" functionality such as the Camera or Contacts. _Windows Phone is currently unsupported._
 
 Through my experience building Cordova/PhoneGap apps, I've encountered many unknowns/bugs/features, and if you've tried building a PhoneGap app, you likely have as well. This guide is a series of patterns that can be used to augment existing knowledge, or can serve as a reference resource.
 
-## Sample App 
+## "Waiting": a sample app 
 
-Included, and referenced throughout, is a sample app called __Waiting__. Coupled with a node.js server (soon to be released), it works as a complete showcase of many of the concepts referenced, and can be used as a jumping off point for many apps you'd like to build.
+Included, and referenced throughout, is a sample app called __Waiting__. Coupled with the included server (Chapter 10), it works as a complete showcase of many of the concepts referenced, and can easily serve as the foundation for your next project. 
 
-__Waiting__ includes some useful features like:
+__Waiting__ includes some useful features ande examples like:
 - login and welcome pages
-- friends and invite-by-sms from local contacts
+- friends and auto-connections 
 - username searching
 - dragging and momentum
 - messaging

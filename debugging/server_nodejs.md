@@ -1,33 +1,52 @@
 # Server (node.js)
 
-You can build a server in any language. Included with __Waiting__ is a sample server in Node.js.
+We've included with __Waiting__ a sample server written in Node.js. 
 
 ### GitHub repository
 
 https://github.com/nicholasareed/waitingapp_nodeserver
 
 
-### Cloning and Building Heroku app
+### Clone and Setup 
 
     git clone git@github.com:nicholasareed/waitingapp_nodeserver.git
     cd waitingapp_nodeserver
     mv config_example.json config.json
-    heroku create
-    npm install
 
-You will need to create a MongoDB database and add the connection string to `config.json` (or as an environment URL). I've been using https://mongolab.com/.
+You will need to create a MongoDB database and add the connection string to `config.json` (or as an environment URL). I've been using https://mongolab.com/ for hosting (500mb free sandbox plan).
 
 Update any other variables in `config.json`.
 
-Then run foreman:
+
+### Develop Locally 
+
+First we'll create our Heroku server application (this adds the `heroku` remote path to your local git repo) 
+
+    heroku create
+    
+then install dependencies via npm (it is checking the server app's `package.json` file)
+
+    npm install
+    
+then run foreman (a Heroku-built local server): 
 
     foreman start
 
-Visit at `http://localhost:5000/` for the sample homepage.
+Finally visit `http://localhost:5000/` for the sample homepage! 
 
 
-### Push Notifications
+### Push to Heroku 
 
-Android and iOS use different systems for Push Notifications.
+In the above step you created the Heroku server app, so now we just need to push our local master branch to Heroku:   
 
-- more details forthcoming.
+    git push heroku master
+
+Heroku will build your app, and you can run `heroku logs --tail` to see the output. 
+
+
+
+
+
+
+
+

@@ -13,18 +13,18 @@ Ordinary, default structure of a PhoneGap app:
 
 And in our `www` directory we have our app-specific structure:
 
-    css
+    css/
         app.css
         ionicons.css
-    fonts
+    fonts/
         ionicons....
     img
     locales
-    res
+    res/
         icon/
         screen/
     splash
-    src
+    src/
         famous/
         lib/
         lib2/
