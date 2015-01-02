@@ -21,4 +21,4 @@ __Width__: Set in the `credentials.json` file using the `max_width` property. De
 
 __Height__: Set in the `credentials.json` file using the `max_width` property. Default is __2000px__. 
 
-__Background__: Background is specified in the css file under `.overall-background`. The app is is centered. 
+__Background__: Background is specified in the css file under `.overall-background`. The app is centered. 

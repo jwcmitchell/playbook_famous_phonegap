@@ -14,12 +14,12 @@ It can easily be server from Heroku (instructions included).
 
 ### GitHub repository
 
-https://github.com/nicholasareed/waitingapp_nodeserver
+https://github.com/FamousMobileApps/waitingapp_nodeserver
 
 
 ### Clone and Setup 
 
-    git clone git@github.com:nicholasareed/waitingapp_nodeserver.git
+    git clone git@github.com:FamousMobileApps/waitingapp_nodeserver.git
     cd waitingapp_nodeserver
     mv config_example.json config.json
 

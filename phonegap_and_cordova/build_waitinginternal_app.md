@@ -3,7 +3,7 @@
 
 ### Links
 
-Waiting App (GitHub Repo):  https://github.com/nicholasareed/waiting_app
+Waiting App (GitHub Repo):  https://github.com/FamousMobileApps/waiting_app
 
 ### Local Steps
 

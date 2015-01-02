@@ -2,11 +2,11 @@
 
 > Homepage at http://www.famousmobileapps.com/
 
-My name is Nicholas Reed. I'm a web developer and this is the startup-in-a-box "playbook" that I use while prototyping apps (Android, iOS and mobile web). 
+This is a startup-in-a-box "playbook" that can be used to prototype apps (Android, iOS, and mobile web). 
 
-The mobile apps are built primarily using Javascript, with a heavy emphasis on the use of the Famo.us framework for rendering views. Android and iOS apps are wrapped in Cordova/Phonegap so they have access to "native" functionality such as the Camera or Contacts. _Windows Phone is currently unsupported._
+The mobile apps are built primarily using Javascript, with a heavy emphasis on the use of the Famo.us framework for rendering views. Android and iOS apps are wrapped in Cordova/Phonegap so they have access to "native" functionality such as the Camera or Contacts. _Windows Phone is currently unsupported._ 
 
-Through my experience building Cordova/PhoneGap apps, I've encountered many unknowns/bugs/features, and if you've tried building a PhoneGap app, you likely have as well. This guide is a series of patterns that can be used to augment existing knowledge, or can serve as a reference resource.
+Through my experience building Cordova/PhoneGap apps, I've encountered many unknowns/bugs/features, and if you've tried building a PhoneGap app, you likely have as well. This guide has a number of patterns that can be used to augment existing knowledge, or can serve as a reference resource.
 
 ## Sample App and Server: "Waiting" 
 
