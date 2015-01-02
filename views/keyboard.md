@@ -10,47 +10,85 @@ When the keyboard opens, depending on the device (iOS versions differ, Android i
 - resize the MainController so that everything fits inside the newly-resized window.
 - capture `Go` or `Submit` pressed on iOS/Android
 
+All of this is handled by our `FormHelper` (`/views/common/FormHelper.js`). 
+
 In `device_ready.js` we have:
 
 
-        // Keyboard
-        // - requires ionic keyboard plugin
-        try {
-            // disable keyboard scrolling
-            cordova.plugins.Keyboard.disableScroll(true);
-        }catch(err){
-            console.error(err, 'no Keyboard');
-        }
-        // add listeners for keyboard show/hide
-        window.addEventListener('native.keyboardshow', function(e){
+    // Keyboard
+    // - requires ionic keyboard plugin
+    try {
+        // disable keyboard scrolling
+        cordova.plugins.Keyboard.disableScroll(true);
+    }catch(err){
+        console.error(err, 'no Keyboard');
+    }
+    // add listeners for keyboard show/hide
+    window.addEventListener('native.keyboardshow', function(e){
+        // Utils.Notification.Toast('Keyboard Show');
 
-            App.mainSize = [App.defaultSize[0],App.defaultSize[1] - e.keyboardHeight];
-            App.MainContext.emit('resize');
+        Timer.setTimeout(function(){
+            var keyboardHeight = e.keyboardHeight;
 
-        });
-        window.addEventListener('native.keyboardhide', function(e){
+            // Has the body changed in height?
+            // if yes, set that as the keyboardHeight
+            if(App.defaultSize[1] != Utils.WindowHeight()){
+                keyboardHeight = App.defaultSize[1] - Utils.WindowHeight();
+                console.log('new keyboardheight from resized window', keyboardHeight + 0);
+            } else {
+                console.log('resizing because the window height did NOT change');
+                // if no, use the supplied keyboardHeight
+                switch(App.Config.devicePlatform){
+                    case 'android':
+                        keyboardHeight -= 40;
+                        console.log('shorter android keyboard! -40');
+                        break;
+                    case 'ios':
+                        break;
+                    default:
+                        break;
+                }
+            }
 
-            App.mainSize = [App.defaultSize[0],App.defaultSize[1]];
-            App.MainContext.emit('resize');
+            App.mainSize = [App.defaultSize[0],App.defaultSize[1] - keyboardHeight];
 
-        });
+            App.KeyboardShowing = true;
+            App.Events.emit('KeyboardShowHide', true);
 
-and when we add an input to a scrollview, we do:
+            App.Events.emit('resize');
 
-    require('views/common/ScrollviewGoto');
+        },16);
 
-    this.inputNameSurface.on('focus', function(){
-        that.contentScrollView.goToIndex(1,0,60);
     });
+    window.addEventListener('native.keyboardhide', function(e){
+        // Utils.Notification.Toast('Keyboard HIDE');
+        
+        App.mainSize = [App.defaultSize[0],App.defaultSize[1]];
+
+        // Update the page (tell 'em)
+        App.KeyboardShowing = false;
+        App.Events.emit('KeyboardShowHide', false);
+
+        App.Events.emit('resize');
+        
+
+    });
+    
+All of the above is basically taking care of resizing the window when the Keyboard shows/hides. Various devices and Operating Systems handle sizing and keyboard differently, this attempts to normalize the window so you're not constantly worried about your inputs being hidden.  
 
 
-`goToIndex` takes 3 arguments:
-- Index to go to
-- velocity
-- transform downwards (60px is great if you have a header!)
+### Preventing the default behavior for a HeaderFooterLayout 
 
+In your `PageView` you can simple overwrite keyboardHandler to prevent any fancy keyboard layout events (scrolling, hiding header). 
+
+    PageView.prototype.keyboardHandler = function(){
+        // no keyboard logic
+    };
+    
 
 #### Go or Submit Form with native keyboard
+
+> Use `FormHelper` instead!!! This subchapter ("Go or ...") describes roughly how `FormHelper` handles scrolling and keyboard events. For the easy, "this is how to make it do something" version, _skip this subchapter_ and instead visit __Chapter 8.8: Forms (Email Signup)__. 
 
 When editing an input field, you can press Enter / Submit / Go to submit the form. To make this work with Famo.us, you'll use two new surfaces:
 - SubmitInputSurface
@@ -152,15 +190,6 @@ and the `addSurfaces` function is:
     };
 
 Notice that we're preventing event propagation on the FormContainer, and the Submit button is using a SubmitInputSurface (with `value` instead of `content` like a normal Surface).
-
-
-### Preventing the default behavior for a HeaderFooterLayout 
-
-In your `PageView` you can simple overwrite keyboardHandler to prevent any fancy keyboard layout events (scrolling, hiding header). 
-
-    PageView.prototype.keyboardHandler = function(){
-        // no keyboard logic
-    };
     
 
 ### Gotchas

@@ -1,5 +1,7 @@
 # Inbox
 
+> Currently outdated (todo: update to LayoutBuilder) 
+
 Inbox should show Messages that are intended for you.
 What determines who can send you messages?
 - have no limits on who can send messages, for now

@@ -1,5 +1,7 @@
 # Profile View
 
+> Currently outdated (todo: update to LayoutBuilder) 
+
 The Profile View is broken up into two Views. 
 
 ### `router.js`

@@ -1,5 +1,6 @@
 # Wizard - Send Message
 
+> Currently outdated (todo: update to LayoutBuilder) 
 
 This shows the common patterns used in a Wizard. It isn't the most expedient way to send a message, but gets our example point across.
 - MessageAdd (handles routing)

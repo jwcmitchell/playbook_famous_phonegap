@@ -1,5 +1,7 @@
 # Search Profiles
 
+> Currently outdated (todo: update to LayoutBuilder) 
+
 We'll be leaving out the actual user-to-user (connecting friends) mechanics, but lets add a way of finding and viewing other user's profiles.
 
 

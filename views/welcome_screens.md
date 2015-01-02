@@ -1,5 +1,7 @@
 # Welcome Screens
 
+> Currently outdated (todo: update to LayoutBuilder) 
+
 After Signup, you'll want a user to complete a series of basic tasks, to Welcome them to the service
 - Say hello
 - choose username

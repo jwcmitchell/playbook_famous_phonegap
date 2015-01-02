@@ -1,6 +1,16 @@
-# Server (node.js)
+# API Server and Website 
 
-We've included with __Waiting__ a sample server written in Node.js. 
+We've included with __Waiting__ a sample server written in Node.js. It supports all of the features the app needs including: 
+
+- Homepage, Support, Privacy Policy (todo) 
+- Email signup and login 
+- OAuth via Google+ and Facebook 
+- Emails with local or remote templates
+- Push Notifications to Android and iOS 
+- Pagination for collection fetches 
+
+It can easily be server from Heroku (instructions included). 
+
 
 ### GitHub repository
 
@@ -15,7 +25,7 @@ https://github.com/nicholasareed/waitingapp_nodeserver
 
 You will need to create a MongoDB database and add the connection string to `config.json` (or as an environment URL). I've been using https://mongolab.com/ for hosting (500mb free sandbox plan).
 
-Update any other variables in `config.json`.
+Update other variables in `config.json`. See __Chapter 3.1: External Services__ for additional accounts you may want to sign up for to enable various APIs. 
 
 
 ### Develop Locally 
