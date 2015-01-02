@@ -4,6 +4,7 @@
 * [Pros and Cons of Hybrid vs. Native Apps](pros_and_cons_of_hybrid_vs_native_apps.md)
 * [FAQs](faqs/README.md)
 * [Setup / Requirements](setup/README.md)
+   * [External Services](setup/external_apis.md)
 * [PhoneGap and Cordova](phonegap_and_cordova/README.md)
    * [Build Hello World](phonegap_and_cordova/something.md)
    * [Build the Waiting App](phonegap_and_cordova/build_waitinginternal_app.md)
