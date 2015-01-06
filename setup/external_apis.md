@@ -114,6 +114,14 @@ https://www.sendgrid.com/
 A basic sendgrid account can be created using the Heroku CLI: `heroku addons:add sendgrid:starter` . It is incredibly slow delivering emails at first, so we'll probably recommend a new provider soon. 
 
 
+### Misc 
+
+#### Transload.it 
+
+https://transloadit.com/
+
+This is a simple, useful service for handling image resizing, cropping, filtering, thumbnailing, etc. When media is uploaded to our server, we send it over to Transload.it for processing, and receive the completed images back in a webhook. 
+
 
 
 
