@@ -12,8 +12,9 @@ Through my experience building Cordova/PhoneGap apps, I've encountered many bugs
 
 > __ The app is being updated and will be in a state of heavy change until Jan 8, 2015! (Then an email will be sent to the mailing list)  __
 
-In this book, we'll show how to create an application called "Waiting" that creates a simple waiting list app.  Along the way you will learn how to build prototype mobile applications, including signups with email and service providers such as Facebook, lists of information, and handling of complex actions such as the keyboard. 
+In this book, we'll show how to create an application called "Waiting" that creates a simple social waiting list app.  Along the way you will learn how to build basic-but-key features for prototype mobile applications, including sign ups with email and Facebook, connecting to other users in the app, and inviting people to join you via email. 
 
+Getting started with Waiting by building the mobile app takes 5 minutes and costs nothing. Running the included server requires various services to be hooked up (database, etc.), but can also be done quickly. 
 
 
 
