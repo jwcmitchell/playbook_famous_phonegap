@@ -122,6 +122,8 @@ https://transloadit.com/
 
 This is a simple, useful service for handling image resizing, cropping, filtering, thumbnailing, etc. When media is uploaded to our server, we send it over to Transload.it for processing, and receive the completed images back in a webhook. 
 
+The Transload.it `key` and `secret` go in `config.json`. 
+
 
 
 
