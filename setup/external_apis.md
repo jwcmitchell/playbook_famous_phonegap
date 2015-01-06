@@ -33,6 +33,19 @@ Developer console: https://console.developers.google.com/
 
 ### Hosting 
 
+#### Heroku (code) 
+
+Sign up at https://heroku.com/
+
+Heroku is one of many cloud providers. We'll use their command-line tools for simple development and deployment. 
+
+Heroku Toolbelt: https://toolbelt.heroku.com/
+
+Make sure to follow the Getting Started instructions on the page, including a local `heroku login` so that you can easily deploy. 
+
+`foreman` will also be installed, which we'll use to recreate our Heroku environment and develop locally. 
+
+
 #### MongoLab (MongoDB)  
 
 We're using MongoLab's free 500mb sandbox for testing our apps (but any mongo host would work). 
