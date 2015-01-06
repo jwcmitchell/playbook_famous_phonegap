@@ -77,22 +77,22 @@ Credentials go in credentials.json (the token is used, including the `UA-` part)
 
 http://trackjs.com/
 
-Provides a free services for gathering javascript errors, and can be upgraded to better tracking. 
+Provides a free services for gathering javascript errors, and can be upgraded to an awesome dashboard for multiple apps. 
 
 
 ### Email (transactional email) 
-
-#### Sendgrid 
-
-https://www.sendgrid.com/ 
-
-A basic sendgrid account can be created using the Heroku CLI: `heroku addons:add sendgrid:starter` . It is incredibly slow delivering emails at first, so we'll probably recommend a new provider soon. 
 
 #### SendWithUs 
 
 https://www.sendwithus.com/
 
 Useful for easy, beautiful templates. Needed for signup/welcome emails to work. Also can hook up SendGrid credentials. 
+
+#### Sendgrid 
+
+https://www.sendgrid.com/ 
+
+A basic sendgrid account can be created using the Heroku CLI: `heroku addons:add sendgrid:starter` . It is incredibly slow delivering emails at first, so we'll probably recommend a new provider soon. 
 
 
 

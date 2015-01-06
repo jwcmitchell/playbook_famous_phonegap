@@ -2,7 +2,7 @@
 
 ### What is a layman's description of famo.us? What is famo.us actually doing?
 
-Famo.us tries to take away the things that a browser is bad at (rendering html, simplistically), while taking advantage of browser benefits (webkit CSS 3d transforms are hardware accelerated!). If you use Chrome Dev Tools to inspect the sample app, you'll notice the `<div>`s only go 2-3 levels deep. Famo.us creates a "virtual DOM" and re-uses the divs on the page. This means you can NEVER use jQuery to reliably query the DOM!
+Famo.us tries to take away the things that a browser is bad at (rendering html, simplistically), while taking advantage of browser benefits (webkit CSS 3d transforms are hardware accelerated!). If you use Chrome Dev Tools to inspect the sample app, you'll notice the `<div>`s only go 2-3 levels deep. Famo.us creates a "virtual" or "shadow" DOM and re-uses the divs on the page. This means you can NEVER use jQuery to reliably query the DOM!
 
 Famo.us uses a scene graph (http://en.wikipedia.org/wiki/Scene_graph), basically a game engine that renders to the screen at (a target) 60 frames-per-second. At 60 FPS, it means that every 16 milliseconds, Famo.us will update its virtual DOM by calling many of the `render` methods on famo.us components, and then render the result to the browser.
 
@@ -88,7 +88,7 @@ If you have overlapping Surfaces, always use Transforms to get it resolved. Not 
     this.someView.add(SlightlyInFrontMod).add(this.someView.Surface);
     this.someView.add(this.anotherSurfaceThatWillBeBehind);
 
-AVOID using the CSS `z-index` property, it'll just cause problems with your Transforms.
+Avoid using the CSS `z-index` property, it'll just cause problems with your Transforms.
 
 
 ### Other Modifier and Transform issues  
@@ -111,7 +111,7 @@ You need to wrap all your transforms in a StateModifier, like so:
 
 ### FormContainer (and new Context with Z-positioning)  
 
-It _appears_ that when adding a new Context, it does not maintain the Z-space position of any modifiers above it. To fix this, we've provided an option to auto-set the Z-space of the new FormContainer to whatever it's parent Transform is. 
+It _appears_ that when adding a new Context (such as through a `FormContainer`, it does not maintain the Z-space position of any modifiers above it. To fix this, we've provided an option to auto-set the Z-space of the new FormContainer to whatever it's parent Transform is. 
 
 
 

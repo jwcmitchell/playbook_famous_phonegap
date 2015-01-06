@@ -15,11 +15,11 @@ Famo.us is the only JavaScript framework that includes an open source 3D layout 
 
 http://famo.us/university
 
-Before continuing, make sure you've gone through all the tutorials Famo.us University. This will give you a beginners understanding of what Famo.us is, and how it works.
+Before continuing, make sure you've gone through all the tutorials on Famo.us University. This will give you a beginners understanding of what Famo.us is, and how it works.
 
 ### GitHub Repository
 
-https://github.com/Famous/core
+https://github.com/Famous/famous
 
 You can also see all of the reference documentation too at http://famo.us/docs/, but it is much more beneficial to pour over the source.
 
@@ -29,7 +29,7 @@ http://famo.us/guides/
 
 Read and re-read these guides! The RenderTree guide in particular is key to understanding Famo.us.
 
-> "It's modifiers all the way down" - Anon
+> "It's modifiers all the way down" - anonymous
 
 When the above quote makes sense, you understand Famo.us.
 
