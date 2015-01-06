@@ -37,7 +37,13 @@ Developer console: https://console.developers.google.com/
 
 We're using MongoLab's free 500mb sandbox for testing our apps (but any mongo host would work). 
 
-When setting up a new database, they don't auto-create a first/new user, so it must be done manually after creating the db. 
+If using heroku, it is simple to set up a new database and user (https://devcenter.heroku.com/articles/mongolab):
+
+    heroku addons:add mongolab
+    
+The server is set up to handle values from the `MONGOLAB_URI` environment variable, or via `config.json`.
+
+> When setting up a new database via the web panel, they don't auto-create a first/new user, so it must be done manually after creating the db. 
 
 
 #### Firebase (websocket) 
