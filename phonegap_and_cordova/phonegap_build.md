@@ -4,7 +4,7 @@
 
 PhoneGap Build provides an easy way to compile your apps in the cloud and receive a downloadable APK (Android) or IPA (iOS).
 
-### Build the Waiting/Internal App for Android
+### Build the Waiting App for Android
 
 1. Sign up for a Free account on PhoneGap Build
 2. Visit your Apps page (https://build.phonegap.com/apps)
