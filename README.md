@@ -12,7 +12,7 @@ Through my experience building Cordova/PhoneGap apps, I've encountered many bugs
 
 > __ The app is being updated and will be in a state of heavy change until Jan 8, 2015! (Then an email will be sent to the mailing list)  __
 
-Included in this playbook is a sample app named __Waiting__. Coupled with the included server (Chapter 10), it works as a complete showcase of many of the concepts referenced, and can easily serve as the foundation for your next project. 
+In this book, we'll show how to create an application called "Waiting" that creates a simple waiting list app.  Along the way you will learn how to build prototype mobile applications, including signups with email and service providers such as Facebook, lists of information, and handling of complex actions such as the keyboard. 
 
 
 
