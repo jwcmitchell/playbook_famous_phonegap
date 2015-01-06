@@ -1,5 +1,8 @@
 # FAQs
 
+### Is Windows Phone supported? 
+
+No. Famo.us doesn't support IE currently. Phonegap uses the platform's native rendering engine (Windows Phone uses IE, Android uses Chrome, iOS uses Safari) and we don't have a PhoneGap/Chromium wrapper for Windows Phone. 
 
 ### What other libraries are similar to famo.us?
 
