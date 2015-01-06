@@ -59,6 +59,8 @@
 * [API Server and Website](debugging/server_nodejs.md)
    * [Auth: Login and Signup](debugging/auth_login_and_signup.md)
    * [Sending a Push Notification](debugging/sending_a_push_notification.md)
+   * [Tests (stub)](debugging/tests.md)
+   * [Monitoring (stub)](debugging/monitoring.md)
 * [Production](production/README.md)
    * [Android](production/android.md)
    * [iOS](production/ios.md)

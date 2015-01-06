@@ -69,7 +69,7 @@ Google Analyticsis used to track PageView changes, so the `router.js` file conta
 
 > This only works for Android, you have to use TestFlight for iOS
 
-To easily distribute your app to folks on Android, simply copy the links on PhoneGap Build. They should include a `?qr_code` string.
+To easily distribute your app to folks on Android, simply copy the links on PhoneGap Build. The URL should include a `?qr_code` string.
 
 
 

@@ -9,7 +9,7 @@ We've included with __Waiting__ a sample server written in Node.js. It supports 
 - Push Notifications to Android and iOS 
 - Pagination for collection fetches 
 
-It can easily be server from Heroku (instructions included). 
+It can easily be served from Heroku (instructions included). 
 
 
 ### GitHub repository
