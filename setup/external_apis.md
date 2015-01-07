@@ -37,8 +37,6 @@ For Push Notifications, see `Chapter 10.2: Sending a Push Notification`.
 
 
 
-
-
 ### Hosting 
 
 #### Heroku (code) 
