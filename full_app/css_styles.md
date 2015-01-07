@@ -25,7 +25,7 @@ Famo.us does offer the option of doing "inline" styles like:
         size: [undefined, undefined],
         properties: {
             fontSize: "14px",
-            lineHeight: "18px",
+            "line-height": "18px",
             color: "red"
         }
     });
