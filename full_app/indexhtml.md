@@ -1,34 +1,72 @@
 # index.html
 
+The index file is sparce, containing only enough information to start our app. 
 
-There is a conflict between Cordova, require.js, and Famo.us, so we load everything in this order to ensure it works correctly. When `deviceready` is fired by cordova, we'll load require.js, which in turn loads our `main.js`.
-
+    <!DOCTYPE HTML>
     <html>
         <head>
-            <title>HelloWorld</title>
-            <meta name="viewport" content="width=device-width, maximum-scale=1, user-scalable=no" />
-            <meta name="mobile-web-app-capable" content="yes" />
+        
+
+In our head we simply set our meta tags for viewport, splash bar, icon, etc, and load our CSS and some required Javascript libraries. 
+
+            <title>Waiting</title>
+            <meta name="viewport" content="user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1,width=device-width,height=device-height" />
+            <meta name="mobile-web-app-capable" content="yes">
             <meta name="apple-mobile-web-app-capable" content="yes" />
-            <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+            <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+            <link rel="apple-touch-icon" href="icon.png">
+            <link rel="apple-touch-startup-image" href="splash.png">
+    
             <link rel="stylesheet" type="text/css" href="src/famous/core/famous.css" />
             <link rel="stylesheet" type="text/css" href="css/ionicons.css" />
+            <link rel="stylesheet" type="text/css" href="css/spectrum.css" />
+            <link rel="stylesheet" type="text/css" href="css/bootflat.css" />
+            <link rel="stylesheet" type="text/css" href="css/rrssb.css" />
+    
+            <link rel="stylesheet" type="text/css" href="css/general.css" />
             <link rel="stylesheet" type="text/css" href="css/app.css" />
 
+            <script type="text/javascript" src="src/lib2/firebase.js"></script>
+    
+            <script type="text/javascript">
+                var cordova;
+            </script>
             <script type="text/javascript" src="cordova.js"></script>
-
+    
+            <script type="text/javascript" src="src/lib2/stripe.js"></script>
+    
+            <script type="text/javascript" src="src/lib2/fastclick.js"></script>
             <script type="text/javascript" src="src/lib/functionPrototypeBind.js"></script>
             <script type="text/javascript" src="src/lib/classList.js"></script>
             <script type="text/javascript" src="src/lib/requestAnimationFrame.js"></script>
-
+    
+    
+    
+When loading our Javascript, there is a conflict between Cordova, require.js, and Famo.us, so we load everything in the following order to ensure it works correctly. After `deviceready` is fired by Cordova, we next load require.js, which in turn loads our `main.js`. We also create our `FastClick` handler that removes the 300ms delay on click events. 
 
             <script type="text/javascript">
+                var app = document.URL.indexOf( 'http://' ) === -1 && document.URL.indexOf( 'https://' ) === -1;
+                var PhoneGapApp = false;
+                if ( app ) {
+                    // PhoneGap application
+                    PhoneGapApp = true;
+                } else {
+                    // Web page
+                }  
+    
                 var GLOBAL_onReady = false;
-
-                // track.js customer id
-                var _trackJs = {
-                    customer: '...'
-                };
-
+    
+                // temp fix for iOS8 beta 1 (fixed in beta 2), add it after the reference to cordova.js
+                if (navigator.userAgent === undefined) {
+                    navigator.__defineGetter__('userAgent', function() {
+                        return("Mozilla/5.0 (iPhone; CPU iPhone OS 8_0 like Mac OS X) AppleWebKit");
+                    });
+                }
+    
+                window.addEventListener('load', function() {
+                    FastClick.attach(document.body);
+                }, false);
+    
                 // Required scripts to add after deviceready
                 var require_scripts = [
                     {
@@ -38,15 +76,15 @@ There is a conflict between Cordova, require.js, and Famo.us, so we load everyth
                         }]
                     }
                 ];
-
+    
                 var addScripts = function(scripts){
-
+    
                     // Add scripts
                     scripts.forEach(function(script_info){
-
+    
                         var script = document.createElement( 'script' );
                         script.type = 'text/javascript';
-
+    
                         if(typeof(script_info) === 'string'){
                             script.src = script_info;
                         } else {
@@ -59,32 +97,104 @@ There is a conflict between Cordova, require.js, and Famo.us, so we load everyth
                                 });
                             }
                         }
-
+    
                         document.body.appendChild( script );
-
+    
                     });
-
+    
                 };
-
+    
                 function onLoad() {
-
+    
                     // browser?
                     if (!navigator.userAgent.match(/(iPhone|iPod|iPad|Android|BlackBerry)/)) {
                         // browser
-                        addScripts(require_scripts);
-                    }
-
-                    // wait for deviceready from cordova
-                    document.addEventListener("deviceready", function(){
-                        // alert('deviceready listener fired!');
                         GLOBAL_onReady = true;
                         addScripts(require_scripts);
-                        // loadGoogleMapsScript();
+                    } else {
+                        try {
+                            if(cordova === undefined){
+                                throw 'addScript';
+                            }
+                        }catch(err){
+                            // browser
+                            console.log('catch browser');
+                            GLOBAL_onReady = true;
+                            addScripts(require_scripts);
+                            return;
+                        }
+    
+                    }
+    
+                    // wait for deviceready from cordova
+                    console.log('wait for deviceready from cordova');
+                    document.addEventListener("deviceready", function(){
+                        GLOBAL_onReady = true;
+                        addScripts(require_scripts);
                     }, false);
-
+    
+    
                 }
-            </script>
+    
+                function handleOpenURL(url, not_immediate) {
+                    console.log('handleOpenURL');
+                    console.log(url);
+                    setTimeout(function() {
+                        if(App && App.Events){
+                            if(not_immediate){
+                                setTimeout(function(){
+                                    App.Events.emit('handle-open-url', url);
+                                },1000); // give it an extra second to finish loading everything
+                            } else {
+                                // no delay in launching
+                                App.Events.emit('handle-open-url', url);
+                            }
+                        } else {
+                            handleOpenURL(url, true);
+                        }
+    
+                    }, 500);
+                }
+    
+    
+The `visitLink` function is included so that certain links (such as mailto: or youtube: links, and when included with the correct CSS class) can launch other apps (YouTube app, etc.) outside our app instance. 
 
+                function visitLink(event, elem, url){
+                    console.log(url);
+                    if (event.stopPropagation) {
+                        event.stopPropagation();   // W3C model
+                    } else {
+                        event.cancelBubble = true; // IE model
+                    }
+    
+                    window.open(url, '_system', 'location=yes');
+    
+                }
+    
+            </script>
+            
+    
         </head>
-        <body onload="onLoad()" style="background:#666;"></body>
+        
+        
+Our `<body>` tag contains some default HTML and styles that are loaded only for the Web App (when our Javascript has not loaded yet). When run as a native app, our Splash Screen is displayed so this content is never visible. 
+
+        <body onload="onLoad()" style="background:#fafafa;">
+            
+            <div class="before-loaded-screen">
+                <table style="width: 100%;height:100%">
+                  <tr>
+                     <td style="text-align: center; vertical-align: middle;">
+    
+                        <img src="icon.png" />
+    
+                     </td>
+                  </tr>
+                </table>
+            </div>
+    
+            <script src="https://apis.google.com/js/client:platform.js" async defer></script>
+    
+        </body>
     </html>
+
