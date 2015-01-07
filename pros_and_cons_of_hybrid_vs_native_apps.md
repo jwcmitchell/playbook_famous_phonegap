@@ -3,7 +3,7 @@
 
 ### How does this technique with Famo.us compare to other app-building methods?
 
-The short answer: Using Famo.us for laying out and displaying your app is incredibly easy and enables a novice developer to create native-like (in terms of responsiveness and the "feel" of using the app) apps. 
+The short answer: Using Famo.us for laying out and displaying your app is incredibly easy and enables a novice developer to create native-feeling apps.  
 
 The long answer: It depends on your needs. If you're a team of Obj-C wizards who don't know a lick of Javascript, you'll probably be better served sticking to your guns. But, if you've been building front ends for websites in Javascript/HTML/CSS for any length of time, this technique can help you quickly create an app that would convince somebody into thinking you've built the app using the native toolchain on the platform (Obj-C, Java, C#), in respect to how it looks and feels through transitions and touch feedback.
 
