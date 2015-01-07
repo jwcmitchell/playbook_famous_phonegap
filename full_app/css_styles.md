@@ -14,7 +14,7 @@ At the top of our index.html, we include:
 - famo.us' CSS styles 
 - ion icons fonts (great icons) 
 - our app's general CSS (lists, footers, etc.) 
-- our app's more specific CSS () 
+- our app's more specific CSS (landing page, etc.) 
 
 ### Inline Styles
 
