@@ -16,7 +16,7 @@ Cost is one-time $25.
 Costs $99 to signup for a year. 
 
 
-### Logins 
+### Logins (OAuth) 
 
 #### Facebook 
 
@@ -29,9 +29,12 @@ Facebook credentials go in config.xml, credentials.json, and config.json (server
 
 To enable user sign-in with Google+, follow the instructions in Step 1 at https://developers.google.com/+/quickstart/android. Keystore-creation instructions are also available in __Chapter 11.1: Android__. 
 
+You'll add the created `gplus_ios_client_id` to your app's `credentials.json` file, and the server expects 
+
+The server expects values for `gplus_server_client_id` and `gplus_server_client_secret` in `config.json`. 
+
 Developer console: https://console.developers.google.com/
 
-https://developers.google.com/+/quickstart/android
 
 
 
