@@ -1,118 +1,184 @@
 # config.xml
 
-
     <?xml version='1.0' encoding='utf-8'?>
-    <widget id="com.helloworld.app.pub" version="0.1.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-        <name>Hello World</name>
+    <widget 
+        id="com.waiting.app.pub" 
+        version="0.1.0" 
+        xmlns="http://www.w3.org/ns/widgets" 
+        xmlns:gap="http://phonegap.com/ns/1.0" 
+        xmlns:android="http://schemas.android.com/apk/res/android" 
+        xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    
+        <name>Waiting</name>
         <description>
-            My First App
+            Start a project
         </description>
-        <author email="your_email_here@example.com" href="http://cordova.io">
+        <author email="nichk@famousmobileapps.com" href="http://famousmobileapps.com">
             Nicholas Reed
         </author>
         <content src="index.html" />
-
+    
         <access origin="*" />
-
+    
+        <gap:platform name="ios" />
+        <gap:platform name="android" />
+    
         <preference name="phonegap-version" value="3.6.3" />
-
+    
         <!-- Android SDK Version -->
         <preference name="android-minSdkVersion" value="14" />
         <!-- iOS Version -->
         <preference name="deployment-target" value="7.0" />
-
+    
         <preference name="orientation" value="portrait" />
         <preference name="fullscreen" value="false" />
-
+    
         <preference name="target-device" value="handset" />
         <preference name="disallowOverscroll" value="true" />
         <preference name="webviewbounce" value="false" />
         <preference name="exit-on-suspend" value="false" />
+        <preference name="KeepRunning" value="true" />
         <preference name="detect-data-types" value="false" />
-        <preference name="StatusBarOverlaysWebview" value="false" />
-
-        <gap:platform name="ios" />
-        <gap:platform name="android" />
-
-        <!-- Hide Status Bar iOS -->
-        <gap:config-file platform="ios" parent="UIViewControllerBasedStatusBarAppearance" overwrite="true">
-            <false/>
-        </gap:config-file>
-        <gap:config-file platform="ios" parent="UIStatusBarHidden" overwrite="true">
-            <true/>
-        </gap:config-file>
-
+    
+        <preference name="StatusBarOverlaysWebView" value="true" />
+        <preference name="StatusBarBackgroundColor" value="#000000" />
+        <preference name="StatusBarStyle" value="lightcontent" />
+    
+        <preference name="AutoHideSplashScreen" value="false" />
+        <preference name="SplashScreen" value="splash.png" />
+        <preference name="SplashScreenDelay" value="10000" />
+    
+    
+        <!-- name="com.acme.app.pub" -->
+        <gap:url-scheme role="None"> 
+          <scheme>waiting</scheme>
+        </gap:url-scheme>
+    
         <gap:plugin name="org.apache.cordova.device" />
         <gap:plugin name="org.apache.cordova.console" />
+        <gap:plugin name="org.apache.cordova.contacts" version="0.2.9" />
         <gap:plugin name="org.apache.cordova.file" />
         <gap:plugin name="org.apache.cordova.file-transfer" />
         <gap:plugin name="org.apache.cordova.camera" />
+        <!-- <gap:plugin name="co.mwater.foregroundcameraplugin" version="0.1.1" /> --> <!-- Not needed if not using CROP or EDIT in image -->
         <gap:plugin name="org.apache.cordova.inappbrowser" />
         <gap:plugin name="org.apache.cordova.geolocation" />
         <gap:plugin name="org.apache.cordova.globalization" />
+        <gap:plugin name="org.apache.cordova.statusbar" />
         <gap:plugin name="com.phonegap.plugins.pushplugin" />
         <gap:plugin name="com.phonegap.plugins.barcodescanner" />
-        <gap:plugin name="com.phonegap.plugin.statusbar" />
         <gap:plugin name="com.verso.cordova.clipboard" />
-
+        <gap:plugin name="org.apache.cordova.splashscreen" source="plugins.cordova.io" version="0.3.5" />
+        <gap:plugin name="com.chariotsolutions.nfc.plugin" version="0.5.1" />
+    
         <gap:plugin name="nl.x-services.plugins.socialsharing" />
-        <gap:plugin name="nl.x-services.plugins.toast" version="1.0" />
+        <gap:plugin name="info.asankan.phonegap.smsplugin" />
+        <gap:plugin name="nl.x-services.plugins.toast" />
         <gap:plugin name="de.appplant.cordova.plugin.local-notification" />
+        <gap:plugin name="com.pylonproducts.wifiwizard" version="0.1.0" />
+    
+        <gap:plugin name="com.ionic.keyboard" version="1.0.3" />
+    
         <gap:plugin name="com.adobe.plugins.gaplugin" />
-
-
+    
+        <gap:plugin name="nl.x-services.plugins.googleplus" version="1.0.8" source="plugins.cordova.io"/>
+    
+        <gap:plugin name="nickreed.com.phonegap.plugins.facebookconnect" version="0.9.1" source="plugins.cordova.io">
+            <param name="APP_ID" value="1576585215910001" />
+            <param name="APP_NAME" value="Waiting" />
+        </gap:plugin>
+    
+        <!-- Keyboard setting for Android -->
+        <gap:config-file platform="android" parent="/manifest/application">
+            <activity android:windowSoftInputMode="adjustResize" />
+        </gap:config-file>
+    
+    
+        <feature name="SplashScreen">
+            <param name="android-package" value="org.apache.cordova.splashscreen.SplashScreen"/>
+            <param name="ios-package" value="CDVSplashScreen"/>
+            <param name="onload" value="true"/>
+        </feature>
+    
+        <feature name="StatusBar">
+            <param name="ios-package" value="CDVStatusBar" onload="true" />
+        </feature>
+    
+        <feature name="Keyboard">
+            <param name="ios-package" value="IonicKeyboard" onload="true" />
+        </feature>
+    
         <feature name="BarcodeScanner">
             <param name="ios-package" value="CDVBarcodeScanner" />
             <param name="android-package" value="com.phonegap.plugins.barcodescanner.BarcodeScanner" />
         </feature>
-
+    
         <feature name="SocialSharing">
           <param name="ios-package" value="SocialSharing" />
           <param name="android-package" value="nl.xservices.plugins.SocialSharing" />
         </feature>
-
+    
         <feature name="Toast">
           <param name="ios-package" value="Toast" />
           <param name="android-package" value="nl.xservices.plugins.Toast" />
         </feature>
-
+    
         <feature name="Device">
             <param name="android-package" value="org.apache.cordova.device.Device" />
         </feature>
-
+    
+        <feature name="Contacts">
+            <param name="android-package" value="org.apache.cordova.contacts.ContactManager"/>
+            <param name="ios-package" value="CDVContacts"/>
+        </feature>
+        
         <feature name="File">
             <param name="android-package" value="org.apache.cordova.file.FileUtils" />
             <param name="ios-package" value="CDVFile" />
         </feature>
-
+    
         <feature name="FileTransfer">
             <param name="android-package" value="org.apache.cordova.filetransfer.FileTransfer" />
             <param name="ios-package" value="CDVFileTransfer" />
         </feature>
-
+    
         <feature name="InAppBrowser">
             <param name="android-package" value="org.apache.cordova.inappbrowser.InAppBrowser" />
             <param name="ios-package" value="CDVInAppBrowser" />
         </feature>
-
+    
         <feature name="PushPlugin" >
             <param name="android-package" value="com.plugin.gcm.PushPlugin"/>
             <param name="ios-package" value="PushPlugin"/>
         </feature>
-
+    
+        <feature name="DatePickerPlugin">
+            <param name="android-package" value="com.plugin.datepicker.DatePickerPlugin"/>
+        </feature>
+        <feature name="DatePicker">
+            <param name="ios-package" value="DatePicker"/>
+        </feature>
+    
         <feature name="LocalNotification">
             <param name="android-package" value="de.appplant.cordova.plugin.localnotification.LocalNotification"/>
             <param name="ios-package" value="APPLocalNotification"/>
         </feature>
-
-        <icon src="icon.png" />
-        <icon src="icon_ios.png" gap:platform="ios" />
-
+    
+    
+        <!-- Icons -->
+    
+        <!-- Android -->
+        <icon src="icon.png" gap:platform="android" />
+    
+        <!-- iOS -->
+        <icon src="icon.png" gap:platform="ios" />
+    
+        <!-- Splash Screens -->
         <gap:splash src="splash.png" />
-        <gap:splash src="splash/ios/Default_iphone5.png" gap:platform="ios" width="640" height="1136" />
-
+        <gap:splash src="splash_640x960.png"  width="640" height="960" />
+    
+    
     </widget>
-
 
 ### Gotchas 
 
