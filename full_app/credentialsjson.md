@@ -4,6 +4,7 @@ Many methods exist for switching between development/staging/production servers.
 
     {
         "app_name" : "Waiting",
+        
         "launch_key" : "waiting://",
     
         "server_root" : "http://_your_subdomain_here_.ngrok.com/",
