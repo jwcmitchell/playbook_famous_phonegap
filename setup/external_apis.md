@@ -27,7 +27,12 @@ Facebook credentials go in config.xml, credentials.json, and config.json (server
 
 #### Google Plus 
 
+To enable user sign-in with Google+, follow the instructions in Step 1 at https://developers.google.com/+/quickstart/android. Keystore-creation instructions are also available in __Chapter 11.1: Android__. 
+
 Developer console: https://console.developers.google.com/
+
+https://developers.google.com/+/quickstart/android
+
 
 
 
