@@ -30,7 +30,7 @@ Famo.us does offer the option of doing "inline" styles like:
         }
     });
 
-Do not get in the habit of doing this! Eventually you will need to copy-paste some code, and it is MUCH easier dealing with CSS styles. You should almost always leave the `properties` out and instead use the `classes` object:
+Do not get in the habit of doing this! Eventually you will need to copy-paste some code, and it is MUCH easier dealing with CSS styles. You should almost always leave the `properties` out and instead the `classes`:
 
     var s = new Surface({
         content: "hello",
