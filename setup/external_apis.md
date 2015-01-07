@@ -33,7 +33,7 @@ You'll add the created `gplus_ios_client_id` to your app's `credentials.json`.
 
 The server expects values for `gplus_server_client_id` and `gplus_server_client_secret` in `config.json`. 
 
-For Push Notifications: Developer console: https://console.developers.google.com/
+For Push Notifications, see `Chapter 10.2: Sending a Push Notification`. 
 
 
 
