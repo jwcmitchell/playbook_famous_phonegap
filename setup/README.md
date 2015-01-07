@@ -26,9 +26,4 @@ You are not *required* to locally download and install the Android/iOS debug too
 
 ### Server Requirements
 
-If you're building the Waiting/Internal App, it uses:
-
-- Node.JS 0.10
-- MongoDB (MongoLab)
-
-(more details forthcoming)
+See __Chapter 10: API Server__. 
