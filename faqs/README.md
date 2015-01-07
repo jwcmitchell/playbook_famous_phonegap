@@ -4,11 +4,15 @@
 
 No. Famo.us doesn't support IE currently. Phonegap uses the platform's native rendering engine (Windows Phone uses IE, Android uses Chrome, iOS uses Safari) and we don't have a PhoneGap/Chromium wrapper for Windows Phone. 
 
-### What other libraries are similar to famo.us?
+### What other libraries are similar to famo.us or have similar objectives?
 
 Framer.js by Koen Bok - http://framerjs.com/
 
 Velocity.js by Julian Shapiro - http://julian.com/research/velocity/
+
+Ionic Framework: http://ionicframework.com/ 
+
+Snabbt: http://daniel-lundin.github.io/snabbt.js/ 
 
 
 ### How can I help improve this book?
