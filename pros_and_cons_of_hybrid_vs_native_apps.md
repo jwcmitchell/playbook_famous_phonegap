@@ -1,16 +1,16 @@
 # Pros and Cons of Hybrid vs. Native Apps
 
 
-### How does this hybrid technique with Famo.us compare to other app-building methods?
+### How does this technique with Famo.us compare to other app-building methods?
 
-The short answer: Using Famo.us for your View rendering is, to me, a revolution in accessiblity for myself as a frontend web developer. I can finally, legitimately, fool somebody into thinking I've built a "native" app , based on visuals and feel.
+The short answer: Using Famo.us for laying out and displaying your app is incredibly easy and enables a novice developer to create native-like (in terms of responsiveness and the "feel" of using the app) apps. 
 
 The long answer: It depends on your needs. If you're a team of Obj-C wizards who don't know a lick of Javascript, you'll probably be better served sticking to your guns. But, if you've been building front ends for websites in Javascript/HTML/CSS for any length of time, this technique can help you quickly create an app that would convince somebody into thinking you've built the app using the native toolchain on the platform (Obj-C, Java, C#), in respect to how it looks and feels through transitions and touch feedback.
 
 
 ### Breaking down the Pros and Cons of Hybrid. Vs. Native 
 
-Again, each company/app is different and has unique requirements that may prioritize one implementation above another. These pros/cons are intended to be looked at through the eyes of a single programmer who is building a startup. 
+Again, each company/app is different and has unique requirements that may prioritize one implementation above another. These pros/cons are from the perspective of a small development team (or a single programmer) with limited resources: 
 
 - time of development
 - performance for the end-user 
