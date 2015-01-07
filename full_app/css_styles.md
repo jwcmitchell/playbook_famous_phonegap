@@ -8,11 +8,13 @@ At the top of our index.html, we include:
 
     <link rel="stylesheet" type="text/css" href="src/famous/core/famous.css" />
     <link rel="stylesheet" type="text/css" href="css/ionicons.css" />
+    <link rel="stylesheet" type="text/css" href="css/general.css" />
     <link rel="stylesheet" type="text/css" href="css/app.css" />
 
-- famous CSS styles
-- Ion Icons fonts (great icons)
-- our app's CSS
+- famo.us' CSS styles 
+- ion icons fonts (great icons) 
+- our app's general CSS (lists, footers, etc.) 
+- our app's more specific CSS () 
 
 ### Inline Styles
 
