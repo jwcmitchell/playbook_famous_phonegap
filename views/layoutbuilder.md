@@ -5,6 +5,8 @@
 
 This is an optional component you can use to build a layout. It tries to make it easy and quick (and syntactially more concise) to build a layout using Famo.us components like `SequentialLayout`, `FlexibleLayout`, and `RenderController`, combined with `Modifiers` for **size**, **origin**, **transform**, and **planes**. 
 
+Another layout component in a similar vein is https://github.com/IjzerenHein/famous-flex. 
+
 
 ## Usage 
 
