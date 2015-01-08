@@ -65,4 +65,5 @@
    * [Android](production/android.md)
    * [iOS](production/ios.md)
    * [Mobile Web](production/web.md)
+* [Thank You](debugging/thank_you.md)
 
