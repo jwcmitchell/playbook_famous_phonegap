@@ -62,6 +62,7 @@
    * [Sending a Push Notification](debugging/sending_a_push_notification.md)
    * [Tests (stub)](debugging/tests.md)
    * [Monitoring (stub)](debugging/monitoring.md)
+   * [Media Upload](debugging/media_upload)
 * [Production](production/README.md)
    * [Android](production/android.md)
    * [iOS](production/ios.md)
