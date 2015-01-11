@@ -24,9 +24,9 @@
        * [MainContext](full_app/setting_up_context.md)
            * [Main](full_app/main.md)
            * [Footer](full_app/footer.md)
+           * Splash Screen
            * [Popover](full_app/popover.md)
            * [Toast](full_app/toast.md)
-           * Splash Screen
    * [Native Plugin Initialization (device_ready.js)](full_app/device_readyjs.md)
    * [Display PageViews (router.js)](full_app/routerjs.md)
        * [routes, ViewToView, StoredTransitions](full_app/routes,_viewtoview,_storedtransitions.md)
