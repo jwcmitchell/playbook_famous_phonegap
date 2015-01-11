@@ -28,7 +28,6 @@ We want a basic `white` background at first. This is also one of the few places 
             App.MainContext.add(new Surface({
                 size: [undefined, undefined],
                 properties: {
-                    // background: "url(img/mochaGrunge.png) repeat",
                     backgroundColor: "white",
                     zIndex : -10
                 }
