@@ -14,6 +14,8 @@ PhoneGap Build provides an easy way to compile your apps in the cloud and receiv
 
 Your app is building!
 
+> By default, the facebook plugin is commented out in config.xml because it adds 5 minutes to the build time
+
 
 #### Android 
 

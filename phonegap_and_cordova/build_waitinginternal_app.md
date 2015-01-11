@@ -49,6 +49,9 @@ Finally we need to install the native plugins that the __Waiting App__ expects. 
     $ cordova plugin add com.phonegap.plugins.barcodescanner
     $ cordova plugin add com.phonegap.plugin.statusbar
     $ cordova plugin add com.verso.cordova.clipboard
+    
+    // Check config.xml and make sure you include all plugins! 
+    
 
 Neglecting to install __at least__ the `device` plugin will result in the app not appearing to work on devices, because it is expecting a `device_ready` event to fire from that plugin.
 
