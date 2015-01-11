@@ -26,6 +26,7 @@
            * [Footer](full_app/footer.md)
            * [Popover](full_app/popover.md)
            * [Toast](full_app/toast.md)
+           * Splash Screen
    * [Native Plugin Initialization (device_ready.js)](full_app/device_readyjs.md)
    * [Display PageViews (router.js)](full_app/routerjs.md)
        * [routes, ViewToView, StoredTransitions](full_app/routes,_viewtoview,_storedtransitions.md)
