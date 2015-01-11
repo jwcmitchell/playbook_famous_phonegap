@@ -24,7 +24,7 @@
        * [MainContext](full_app/setting_up_context.md)
            * [Main](full_app/main.md)
            * [Footer](full_app/footer.md)
-           * Splash Screen
+           * [Splash Screen](splash_screen.md)
            * [Popover](full_app/popover.md)
            * [Toast](full_app/toast.md)
    * [Native Plugin Initialization (device_ready.js)](full_app/device_readyjs.md)
