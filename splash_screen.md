@@ -28,10 +28,20 @@ Our Splash Screen is only displayed on iOS/Android (not mobile web) and is meant
     };
     
 
-Later in `main.js` you'll find
+Later in `main.js` you'll find the code that actually disabled the device splash screen, leaving ours behind. 
 
 
     // Hide our device-specific splashscreen image
     if(App.usePg){
         navigator.splashscreen.hide();
     }
+    
+
+
+To hide our splash screen, we call `.hide` (remember it is simply a RenderController!): 
+
+    App.Views.SplashLoading.hide();
+
+
+    
+    
