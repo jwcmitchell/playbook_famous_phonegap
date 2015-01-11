@@ -11,11 +11,12 @@ There a TON of icons you _could_ create, but really we only need a few to make o
 
 In our `config.xml` file we include at the bottom: 
 
-    <icon src="icon.png"/>
-    <icon src="icon_ios.png" gap:platform="ios" />
+    <icon src="res/icon/icon.png"/>
+    <icon src="res/icon/icon_ios.png" gap:platform="ios" />
 
-    <gap:splash src="splash.png" />
-    <gap:splash src="splash_ios.png" gap:platform="ios" />
+    <gap:splash src="res/splash/splash.png" gap:platform="android" />
+    <gap:splash src="res/splash/splash.png" gap:platform="ios" width="640" height="1136" />
+    <gap:splash src="res/splash/splash_640x960.png" gap:platform="ios" width="640" height="960" />
     
 We've only references two icons files, and two splash screens. This covers all we need, as the icons will be copied to all the necessary places by PGB. 
 
