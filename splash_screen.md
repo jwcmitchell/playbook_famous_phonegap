@@ -35,10 +35,3 @@ Later in `main.js` you'll find
     if(App.usePg){
         navigator.splashscreen.hide();
     }
-    
-    
-which is switching our 
-
-
-
-    createSplashLoading
