@@ -41,4 +41,4 @@ which is switching our
 
 
 
-    createSplashLoading();
+    createSplashLoading
