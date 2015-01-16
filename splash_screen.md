@@ -28,7 +28,7 @@ Our Splash Screen is only displayed on iOS/Android (not mobile web) and is meant
     };
     
 
-Later in `main.js` you'll find the code that actually disabled the device splash screen, leaving ours behind. We include a number of Timer's to give a bit of leeway in making sure everything is rendered without "flashes" (occurs if we get rid of our Splash Screen before famo.us is ready). 
+Later in `main.js` you'll find the code that actually disabled the device splash screen, leaving ours behind. We include a number of Timer's to give a bit of leeway in making sure everything is rendered without "flashes" (which occur when/if we get rid of our Splash Screen before famo.us is ready). 
     
     // Hide device splash screen, start our splash screen animation
     App.Functions.SplashAction();
