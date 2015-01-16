@@ -64,6 +64,7 @@
    * [Media Upload](debugging/media_upload.md)
    * [Tests (stub)](debugging/tests.md)
    * [Monitoring (stub)](debugging/monitoring.md)
+   * [SSL](debugging/ssl.md)
 * [Production](production/README.md)
    * [Android](production/android.md)
    * [iOS](production/ios.md)
