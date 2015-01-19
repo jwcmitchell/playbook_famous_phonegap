@@ -64,5 +64,5 @@ This will result in something like:
 
 Now simply add the newly-created `wakalama-2000.herokussl.com` domain in the Heroku dashboard for the app, and update your DNS entries. 
     
-    
+For Heroku, you won't have to change 
     
