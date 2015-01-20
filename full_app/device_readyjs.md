@@ -1,7 +1,7 @@
 # device_ready.js
 
 
-## Waiting for .onReady to be...ready
+### Waiting for .onReady to be...ready
 
 > the `onReady` event is emitted by Cordova when the webview has loaded all the native plugins
 

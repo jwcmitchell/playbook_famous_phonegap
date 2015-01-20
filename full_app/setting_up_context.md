@@ -1,12 +1,5 @@
 # MainContext
 
-
----
-
-> stub
-
----
-
 MainContext
 MainController (Lightbox, with defaults)
 BgSurface for MainController (with zIndex)

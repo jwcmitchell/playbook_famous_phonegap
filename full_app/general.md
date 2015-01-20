@@ -4,6 +4,7 @@
 
     // Data store
     App = {
+        $: $, // globalize jquery
         t: null, // for translation
         Flags: {},
         MainContext: null,
