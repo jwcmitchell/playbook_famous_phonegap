@@ -36,6 +36,7 @@ Example:
     var tmpSurface = new LayoutBuilder({
         surface: {
             key: 'MySurface',
+            plane: ['content', 10],
             mods: [{
                 key: 'MyOpacity',
                 opacity: 0.5
@@ -73,6 +74,11 @@ Makes it easy to reference this element from elsewhere. This becomes more appare
     tmpSurface.node = "the lowest-level node, the Surface"
     tmpSurface.MySurface = "the lowest-level node, the Surface"
     tmpSurface = "the top-most node with margins, mods, etc."
+
+
+#### `plane` 
+
+Look at Chapter 8.4 Planes/Layers for a description of how planes work. This input accepts an array of two items describing the plane to be used (`null` is allowed) and the amount to nudge it forward/backwards. 
 
 
 #### `mods` 
