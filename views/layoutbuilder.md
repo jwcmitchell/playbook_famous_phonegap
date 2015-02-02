@@ -34,9 +34,9 @@ At the most basic level, you might want to create a Surface using the LayoutBuil
 Example: 
 
     var tmpSurface = new LayoutBuilder({
+        plane: ['content', 10],
         surface: {
             key: 'MySurface',
-            plane: ['content', 10],
             mods: [{
                 key: 'MyOpacity',
                 opacity: 0.5
