@@ -44,6 +44,7 @@ Example:
                 key: 'MyTransform'
             }],
             margins: [10,10,10,10],
+            marginsMiddle: true,
             surface: new Surface({
                 content: 'Hello',
                 wrap: '<span></span>',
@@ -112,6 +113,10 @@ If we wanted to animate our surface by moving it down slightly (20px), we need t
 An array of margins like `[10,8,6,4]` for `[top, right, bottom, left]`
 
 > It is recommended to have a Surface _behind_ a margin'd element that has .pipe (otherwise the margins are effecively "empty" and don't transmit events) 
+
+#### `marginsMiddle` 
+
+Set the height of the middle element in the margins (either `true` or `undefined`). Default is `undefined` which means it will take up all the available space. 
 
 
 #### `surface` 
