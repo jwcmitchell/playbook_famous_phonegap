@@ -45,6 +45,18 @@ Example:
             }],
             margins: [10,10,10,10],
             marginsMiddle: true,
+            
+            background: {
+                plane: ['content',9],
+                surface: {
+                    surface: new Surface({
+                        size: [undefined, undefined],
+                        properties: {
+                            'background-color' : 'rgba(20,20,20,0.8)'
+                        }
+                    })
+                }
+            },
             surface: new Surface({
                 content: 'Hello',
                 wrap: '<span></span>',
@@ -118,6 +130,9 @@ An array of margins like `[10,8,6,4]` for `[top, right, bottom, left]`
 
 Set the height of the middle element in the margins (either `true` or `undefined`). Default is `undefined` which means it will take up all the available space. 
 
+#### `background` 
+
+This is an object passed to a new LayoutBuilder that is constrained in size to the corresponding surface, flexible, etc. It is perfect for adding a background image behind something (and great if you're using margins!)  
 
 #### `surface` 
 
