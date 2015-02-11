@@ -70,7 +70,7 @@ Example:
             },
             pipe: this.OtherScrollView,
             events: function(theSurface){
-                // start an animation, etc.
+                // start an animation, pipe to a parent scroller that hasn't been created yet, etc.
             }
         }
     });
