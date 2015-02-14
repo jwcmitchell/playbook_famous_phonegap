@@ -93,6 +93,23 @@ We're done modifying/redirecting our route request, so now we use Backbone to tr
         };
 
 
+### `preload` 
+
+Preload a route 
+
+> You probably want to have {cache: true} set for the route! 
+
+    historyObj.preload = function(path){
+
+        App.Cache.PreloadNextPage = true;
+        App.BackboneEvents.once('defaultRouteLoaded:#' + path, function(){
+            Backbone.history.navigate('preloaded:' + path, {trigger: true, replace: true});
+        });
+        Backbone.history.navigate(path, {trigger: true, replace: true});
+
+    };
+    
+    
 ### `back`
 
 Just a wrapper for `navigate`.
