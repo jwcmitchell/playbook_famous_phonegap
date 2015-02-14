@@ -53,11 +53,6 @@ Open Keychain Access. From the menu bar, choose the __Certificate Assitant__ dro
 
 Fill out the form (use you or your company's name), and choose the __Save to Disk__ option. Click Continue and save the file to `resuse_these_pieces/MyName.certSigningRequest`. 
 
-After it has been created, visit the Keys section of Keychain Access, where you'll find a new __MyName__ private key has been created. 
-
-Right-click to open the menu and click the __Export "MyName"__ option.
-
-Save the file to  `reuse_these_pieces/MyName.p12` with a password you'll remember (or just write it down)! 
 
 #### Create Development/Distribution Signing Certificate 
 
@@ -73,7 +68,17 @@ Upload the `reuse_these_pieces/MyName.certSigningRequest` file when requested.
 
 Generate the certificate. 
 
-You don't need to download this certificate, if you're using PhoneGap Build! Instead, PGB only needs the .mobile_provision file created in the next step. 
+> Note: The previous instructions didn't require the .cer file to be downloaded, we could simply export our .p12 file without getting Apple's .cer file. 
+Download the certificate and double-click the .cer file
+
+
+### Export .p12 file 
+
+Double-click our .cer file and it will be installed into your Keychain. Visit the Certificates section of Keychain Access, where you'll find a new __MyName__ private key has been created. 
+
+Right-click to open the menu and click the __Export "MyName"__ option.
+
+Save the file to  `reuse_these_pieces/MyName.p12` with a password you'll remember (or just write it down)! 
 
 
 #### Create the .mobile_provision file for PhoneGap Build  
