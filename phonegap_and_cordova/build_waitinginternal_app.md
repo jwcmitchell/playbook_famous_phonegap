@@ -14,7 +14,7 @@ First step, create a new local project:
     $ cordova create waiting_app com.waiting.app.dev Waiting
     $ cd waiting_app
 
-- directory: `waiting`
+- directory: `waiting_app`
 - app id: `com.waiting.app.dev`
 - app name: `Waiting`
 
